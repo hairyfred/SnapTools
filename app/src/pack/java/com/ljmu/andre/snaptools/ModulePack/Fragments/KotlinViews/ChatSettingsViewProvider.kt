@@ -27,8 +27,14 @@ import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATIO
 import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_CHAT
 import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_CHATSS
 import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_SNAP
-import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_TYPING
-
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_REPLAY
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_SCREENSHOT
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_ADDBACK
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_CALL
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_VIDEO
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_ABANDONVIDEO
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_ABANDONCALL
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_CROLL
 
 /**
  * This class was created by Andre R M (SID: 701439)
@@ -45,8 +51,17 @@ class ChatSettingsViewProvider {
                     lparams(matchParent, matchParent)
                     var snapstring =  ("default")
                     var chatstring = ("default")
+                    var chatsstring = ("default")
                     var typingstring = ("default")
                     var addstring = ("default")
+                    var callstring = ("default")
+                    var videostring = ("default")
+                    var abandoncallstring = ("default")
+                    var abandonvideostring = ("default")
+                    var addbackstring = ("default")
+                    var crollstring = ("default")
+                    var replaystring = ("default")
+                    var screenshotstring = ("default")
 
                     verticalLayout {
                         header("Chat Saving Settings")
@@ -197,6 +212,178 @@ class ChatSettingsViewProvider {
                                 })
                             }.lparams(width = matchParent, weight = 1f)
                         }
+                        linearLayout {
+                            label("Added Back").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText(getPref<String>(NOTIFICATION_TEXT_ADDBACK))
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        addbackstring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+
+                        linearLayout {
+                            label("Chat Screenshot").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText(getPref<String>(NOTIFICATION_TEXT_CHATSS))
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        chatsstring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+                        linearLayout {
+                            label("Snap Screenshot").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText(getPref<String>(NOTIFICATION_TEXT_SCREENSHOT))
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        screenshotstring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+                        linearLayout {
+                            label("Replay").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText(getPref<String>(NOTIFICATION_TEXT_REPLAY))
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        replaystring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+                        linearLayout {
+                            label("Call").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText(getPref<String>(NOTIFICATION_TEXT_CALL))
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        callstring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+                        linearLayout {
+                            label("Missed Call").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText(getPref<String>(NOTIFICATION_TEXT_ABANDONCALL))
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        abandoncallstring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+                        linearLayout {
+                            label("Video").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText(getPref<String>(NOTIFICATION_TEXT_VIDEO))
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        videostring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+                        linearLayout {
+                            label("Missed Video").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText(getPref<String>(NOTIFICATION_TEXT_ABANDONVIDEO))
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+
+                                if (editable.toString().isEmpty()){
+                                    p
+                                }
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        abandonvideostring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
                         themedButton(ResourceUtils.getStyle(context, "NeutralButton")) {
                             id = "button_apply_Custom_notifications".toId()
                             text = "Apply Custom notifications"
@@ -208,6 +395,14 @@ class ChatSettingsViewProvider {
                                 putPref(NOTIFICATION_TEXT_CHAT, chatstring)
                                 putPref(NOTIFICATION_TEXT_TYPING, typingstring)
                                 putPref(NOTIFICATION_TEXT_ADD, addstring)
+                                putPref(NOTIFICATION_TEXT_CHATSS, chatsstring)
+                                putPref(NOTIFICATION_TEXT_CROLL, crollstring)
+                                putPref(NOTIFICATION_TEXT_VIDEO, videostring)
+                                putPref(NOTIFICATION_TEXT_CALL, callstring)
+                                putPref(NOTIFICATION_TEXT_REPLAY, replaystring)
+                                putPref(NOTIFICATION_TEXT_ADDBACK, addbackstring)
+                                putPref(NOTIFICATION_TEXT_SCREENSHOT, screenshotstring )
+
                             }
                         }
                     }
