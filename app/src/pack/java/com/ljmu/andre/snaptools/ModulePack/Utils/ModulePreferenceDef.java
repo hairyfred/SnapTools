@@ -181,7 +181,45 @@ public class ModulePreferenceDef extends ConstantDefiner<Preference> {
             null, String.class
     );
 
+    public static final Preference NOTIFICATION_TEXT_ADDBACK = new Preference(
+            "NOTIFICATION_TEXT_ADDBACK",
+            null, String.class
+    );
 
+    public static final Preference NOTIFICATION_TEXT_CROLL = new Preference(
+            "NOTIFICATION_TEXT_CROLL",
+            null, String.class
+    );
+
+    public static final Preference NOTIFICATION_TEXT_REPLAY = new Preference(
+            "NOTIFICATION_TEXT_REPLAY",
+            null, String.class
+    );
+
+    public static final Preference NOTIFICATION_TEXT_SCREENSHOT = new Preference(
+            "NOTIFICATION_TEXT_SCREENSHOT",
+            null, String.class
+    );
+
+    public static final Preference NOTIFICATION_TEXT_VIDEO = new Preference(
+            "NOTIFICATION_TEXT_VIDEO",
+            null, String.class
+    );
+
+    public static final Preference NOTIFICATION_TEXT_CALL = new Preference(
+            "NOTIFICATION_TEXT_CALL",
+            null, String.class
+    );
+
+    public static final Preference NOTIFICATION_TEXT_ABANDONCALL = new Preference(
+            "NOTIFICATION_TEXT_ABANDONCALL",
+            null, String.class
+    );
+
+    public static final Preference NOTIFICATION_TEXT_ABANDONVIDEO = new Preference(
+            "NOTIFICATION_TEXT_ABANDONVIDEO",
+            null, String.class
+    );
     // ===========================================================================
 
     /**
