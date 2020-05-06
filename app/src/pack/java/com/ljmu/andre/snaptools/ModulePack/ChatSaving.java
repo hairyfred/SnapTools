@@ -98,23 +98,23 @@ public class ChatSaving extends ModuleHelper {
         return getPref(pref);
     }
 
-    public static String notifReplacer (String notifType){
+    public static String notifReplacer (String notifType,String pref){
         String text = "";
         switch (notifType){
             case "SNAP":
-                text = "Snap from {nickname}!";
+                text = pref;
                 break;
             case "CHAT":
-                text = "Chat from {nickname}!";
+                text = pref;
                 break;
             case "TYPING":
-                text = "{nickname} is typing!";
+                text = pref;
                 break;
             case "CHAT_SCREENSHOT":
-                text = "{nickname} screenshot the chat!";
+                text = pref;
                 break;
             case "ADD":
-                text = "{nickname} added you!";
+                text = pref;
         }
         return text;
     }
@@ -189,7 +189,8 @@ public class ChatSaving extends ModuleHelper {
                             String source = (String) XposedHelpers.getObjectField(param.args[0], "d");
                             // Not too sure what source is, returns null
 
-                            String text = notifReplacer(name);
+                            String prefText = getNotificationText(name);
+                            String text = notifReplacer(name, prefText);
                             if (text == null) return;
                             XposedHelpers.setObjectField(param.args[0],"r", syntaxReplacer(text, nickname, username, recipient));
                         }
