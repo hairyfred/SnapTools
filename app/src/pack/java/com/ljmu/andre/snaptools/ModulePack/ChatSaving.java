@@ -49,6 +49,14 @@ import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTI
 import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_CHATSS;
 import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_SNAP;
 import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_TYPING;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_SCREENSHOT;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_ADDBACK;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_CALL;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_VIDEO;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_REPLAY;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_CROLL;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_ABANDONCALL;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_ABANDONVIDEO;
 
 
 
@@ -68,10 +76,11 @@ public class ChatSaving extends ModuleHelper {
         super(name, canBeDisabled);
     }
 
-    public static String syntaxReplacer (String text, String nickname, String username, String receiver){
+    public static String syntaxReplacer (String text, String nickname, String username, String receiver, String type){
        text = text.replace("{username}", username)
                .replace("{nickname}", nickname)
                .replace("{receiver}", receiver)
+               .replace("{type}", type)
                .replace("/n", "\n");
        return text;
     }
@@ -92,8 +101,35 @@ public class ChatSaving extends ModuleHelper {
             case "CHAT_SCREENSHOT":
                 pref = NOTIFICATION_TEXT_CHATSS;
                 break;
+            case "STATUS_BAR":
+                pref = NOTIFICATION_TEXT_ADD;
+                break;
             case "ADD":
                 pref = NOTIFICATION_TEXT_ADD;
+                break;
+            case "SCREENSHOT":
+                pref = NOTIFICATION_TEXT_SCREENSHOT;
+                break;
+            case "REPLAY":
+                pref = NOTIFICATION_TEXT_REPLAY;
+                break;
+            case "SAVE_CAMERA_ROLL":
+                pref = NOTIFICATION_TEXT_CROLL;
+                break;
+            case "ADDFRIEND":
+                pref = NOTIFICATION_TEXT_ADDBACK;
+                break;
+            case "INITIATE_AUDIO":
+                pref = NOTIFICATION_TEXT_CALL;
+                break;
+            case "INITIATE_VIDEO":
+                pref = NOTIFICATION_TEXT_VIDEO;
+                break;
+            case "ABANDON_AUDIO":
+                pref = NOTIFICATION_TEXT_ABANDONCALL; //Broken
+                break;
+            case "ABANDON_VIDEO":
+                pref = NOTIFICATION_TEXT_ABANDONVIDEO; //Broken
                 break;
             default:
                 return null;
@@ -172,7 +208,7 @@ public class ChatSaving extends ModuleHelper {
 
                             String text = setNotificationText(name);
                             if (text == null) return;
-                            XposedHelpers.setObjectField(param.args[0],"r", syntaxReplacer(text, nickname, username, recipient));
+                            XposedHelpers.setObjectField(param.args[0],"r", syntaxReplacer(text, nickname, username, recipient, name));
                         }
                     }
             );
