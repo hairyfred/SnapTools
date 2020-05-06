@@ -3,9 +3,11 @@ package com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.view.ViewGroup
+import com.ljmu.andre.GsonPreferences.Preferences
 import com.ljmu.andre.GsonPreferences.Preferences.getPref
 import com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews.CustomViews.Companion.header
 import com.ljmu.andre.snaptools.ModulePack.Utils.KotlinUtils.Companion.toDp
+import com.ljmu.andre.snaptools.ModulePack.Utils.KotlinUtils.Companion.toId
 import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.*
 import com.ljmu.andre.snaptools.Utils.PreferenceHelpers.putAndKill
 import com.ljmu.andre.snaptools.Utils.ResourceUtils
@@ -65,9 +67,22 @@ class ChatSettingsViewProvider {
                         }
 
                         themedSwitchCompat(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
+                            id = "switch_stealth_typing".toId()
+
                             verticalPadding = 5.toDp()
                             horizontalPadding = 10.toDp()
-                            text = "Swear-ify notifications"
+                            text = "Hide '... is typing' Notification"
+                            isChecked = Preferences.getPref(BLOCK_OUTGOING_TYPING_NOTIFICATION)
+
+                            setOnCheckedChangeListener { _, isChecked ->
+                                putAndKill(BLOCK_OUTGOING_TYPING_NOTIFICATION, isChecked, activity)
+                            }
+                        }
+
+                        themedSwitchCompat(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
+                            verticalPadding = 5.toDp()
+                            horizontalPadding = 10.toDp()
+                            text = "Custom notifications"
                             isChecked = getPref(CHANGE_TYPING_NOTIFICATIONS)
 
                             setOnCheckedChangeListener { _, isChecked ->
