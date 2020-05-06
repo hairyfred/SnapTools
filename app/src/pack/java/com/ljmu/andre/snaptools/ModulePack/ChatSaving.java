@@ -58,12 +58,34 @@ public class ChatSaving extends ModuleHelper {
         super(name, canBeDisabled);
     }
 
-    public static String notifReplacer (String notifType, String nickname, String username, String receiverUsername){
-       notifType = notifType.replace("{username}", username);
-       notifType = notifType.replace("{nickname}", nickname);
-       notifType = notifType.replace("{receiver}", receiverUsername);
-       return notifType;
+    public static String syntaxReplacer (String text, String nickname, String username, String receiver){
+       text = text.replace("{username}", username)
+               .replace("{nickname}", nickname)
+               .replace("{receiver}", receiver);
+       return text;
     }
+
+    public static String notifReplacer (String notifType){
+        String text = "";
+        switch (notifType){
+            case "SNAP":
+                text = "Snap from {nickname}!";
+                break;
+            case "CHAT":
+                text = "Chat from {nickname}!";
+                break;
+            case "TYPING":
+                text = "{nickname} is typing!";
+                break;
+            case "CHAT_SCREENSHOT":
+                text = "{nickname} screenshot the chat!";
+                break;
+            case "ADD":
+                text = "{nickname} added you!";
+        }
+        return text;
+    }
+
 
     @Override
     public FragmentHelper[] getUIFragments() {
@@ -134,28 +156,8 @@ public class ChatSaving extends ModuleHelper {
                             String source = (String) XposedHelpers.getObjectField(param.args[0], "d");
                             // Not too sure what source is, returns null
 
-                            if (name.contains("TYPING")) {
-                                String typing = "";
-                                XposedHelpers.setObjectField(param.args[0],"r", notifReplacer(typing, username, nickname, recipient));
-                            }
-
-                            if (name.contains("CHAT")) {
-                                if (username.equals("teamsnapchat")){
-                                    XposedHelpers.setObjectField(param.args[0],"r",  String.format("%s Notice: Account Lock.", nickname)); }
-                                else{
-                                    String chat = "";
-                                    XposedHelpers.setObjectField(param.args[0],"r", notifReplacer(chat, username, nickname, recipient)); }
-                            }
-
-                            if (name.contains("SNAP")) {
-                                String snap = "";
-                                XposedHelpers.setObjectField(param.args[0],"r", notifReplacer(snap, username, nickname, recipient));
-                            }
-
-                            if (name.contains("ADD")) {
-                                String add = "";
-                                XposedHelpers.setObjectField(param.args[0],"r", notifReplacer(add, username, nickname, recipient));
-                            }
+                            String text = notifReplacer(name);
+                            XposedHelpers.setObjectField(param.args[0],"r", syntaxReplacer(text, nickname, username, recipient));
                         }
                     }
             );
