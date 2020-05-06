@@ -373,9 +373,6 @@ class ChatSettingsViewProvider {
                                 leftPadding = 10.toDp()
                                 gravity = Gravity.CENTER_VERTICAL
 
-                                if (editable.toString().isEmpty()){
-                                    p
-                                }
                                 addTextChangedListener(object : ViewFactory.EditTextListener() {
                                     override fun textChanged(source: EditText?, editable: Editable?) {
                                         abandonvideostring = editable.toString()
@@ -402,6 +399,8 @@ class ChatSettingsViewProvider {
                                 putPref(NOTIFICATION_TEXT_REPLAY, replaystring)
                                 putPref(NOTIFICATION_TEXT_ADDBACK, addbackstring)
                                 putPref(NOTIFICATION_TEXT_SCREENSHOT, screenshotstring )
+                                putPref(NOTIFICATION_TEXT_ABANDONCALL, abandoncallstring )
+                                putPref(NOTIFICATION_TEXT_ABANDONVIDEO, abandonvideostring )
 
                             }
                         }
