@@ -106,7 +106,7 @@ public class ChatSaving extends ModuleHelper {
                     }
             );
         }
-
+// HAYDS NOTIFICATIONS
         if (getPref(CHANGE_TYPING_NOTIFICATIONS)) {
             hookMethod(
                     CHAT_NOTIFICATION,

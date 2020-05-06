@@ -2,10 +2,14 @@ package com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
+import android.view.Gravity
 import android.view.ViewGroup
 import com.ljmu.andre.GsonPreferences.Preferences
 import com.ljmu.andre.GsonPreferences.Preferences.getPref
 import com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews.CustomViews.Companion.header
+import com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews.CustomViews.Companion.headerNoUnderline
+import com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews.CustomViews.Companion.label
 import com.ljmu.andre.snaptools.ModulePack.Utils.KotlinUtils.Companion.toDp
 import com.ljmu.andre.snaptools.ModulePack.Utils.KotlinUtils.Companion.toId
 import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.*
@@ -90,7 +94,66 @@ class ChatSettingsViewProvider {
                             }
                         }
 
-                    }.lparams(matchParent)
+                        headerNoUnderline("Custom notifications settings", Gravity.CENTER)
+
+
+                        linearLayout {
+                            label("Snap").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText("SNAP PLACEHOLDER")
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+                        linearLayout {
+                            label("Chat").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText("CHAT PLACEHOLDER")
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+                        linearLayout {
+                            label("Typing").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText("TYPING PLACEHOLDER")
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+                        linearLayout {
+                            label("Add").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText("ADD PLACEHOLDER")
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+                    }
                 }
             }.view as T
 }
