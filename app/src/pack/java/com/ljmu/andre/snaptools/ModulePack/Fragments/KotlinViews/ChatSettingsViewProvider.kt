@@ -3,8 +3,12 @@ package com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.text.Editable
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import com.ljmu.andre.GsonPreferences.Preferences
 import com.ljmu.andre.GsonPreferences.Preferences.getPref
 import com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews.CustomViews.Companion.header
@@ -13,6 +17,7 @@ import com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews.CustomViews.Com
 import com.ljmu.andre.snaptools.ModulePack.Utils.KotlinUtils.Companion.toDp
 import com.ljmu.andre.snaptools.ModulePack.Utils.KotlinUtils.Companion.toId
 import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.*
+import com.ljmu.andre.snaptools.ModulePack.Utils.ViewFactory
 import com.ljmu.andre.snaptools.Utils.PreferenceHelpers.putAndKill
 import com.ljmu.andre.snaptools.Utils.ResourceUtils
 import org.jetbrains.anko.*
@@ -31,6 +36,10 @@ class ChatSettingsViewProvider {
             activity.UI {
                 scrollView {
                     lparams(matchParent, matchParent)
+                    var snapstring =  ("default")
+                    var chatstring = ("default")
+                    var typingstring = ("default")
+                    var addstring = ("defualt")
 
                     verticalLayout {
                         header("Chat Saving Settings")
@@ -109,8 +118,16 @@ class ChatSettingsViewProvider {
                                 textSize = 16f
                                 leftPadding = 10.toDp()
                                 gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        snapstring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
                             }.lparams(width = matchParent, weight = 1f)
                         }
+
                         linearLayout {
                             label("Chat").lparams(width = matchParent, weight = 2f) {
                                 gravity = Gravity.CENTER_VERTICAL
@@ -123,6 +140,13 @@ class ChatSettingsViewProvider {
                                 textSize = 16f
                                 leftPadding = 10.toDp()
                                 gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        chatstring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
                             }.lparams(width = matchParent, weight = 1f)
                         }
                         linearLayout {
@@ -137,6 +161,13 @@ class ChatSettingsViewProvider {
                                 textSize = 16f
                                 leftPadding = 10.toDp()
                                 gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        typingstring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
                             }.lparams(width = matchParent, weight = 1f)
                         }
                         linearLayout {
@@ -151,7 +182,23 @@ class ChatSettingsViewProvider {
                                 textSize = 16f
                                 leftPadding = 10.toDp()
                                 gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        addstring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
                             }.lparams(width = matchParent, weight = 1f)
+                        }
+                        themedButton(ResourceUtils.getStyle(context, "NeutralButton")) {
+                            id = "button_apply_Custom_notifications".toId()
+                            text = "Apply Custom notifications"
+                            visibility = View.GONE
+
+                            setOnClickListener {
+                                // CODE TO REPLACE HAYDS STRING HERE
+                            }
                         }
                     }
                 }
