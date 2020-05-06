@@ -1,6 +1,6 @@
 # SnapTools
-Snaptools for Snapchat 10.48.5.0 Beta
--Due to it being on beta it allows you to add friends witch other packs do not allow.
+Snaptools for Snapchat 10.48.5.0 Beta  
+-Due to it being on beta it allows you to add friends witch other packs do not allow.  
 -It also lets you sign in on android 10 without downgrading etc
 
 # Credits
