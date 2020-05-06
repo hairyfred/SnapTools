@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import com.ljmu.andre.GsonPreferences.Preferences
 import com.ljmu.andre.GsonPreferences.Preferences.getPref
+import com.ljmu.andre.GsonPreferences.Preferences.putPref
 import com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews.CustomViews.Companion.header
 import com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews.CustomViews.Companion.headerNoUnderline
 import com.ljmu.andre.snaptools.ModulePack.Fragments.KotlinViews.CustomViews.Companion.label
@@ -22,7 +23,12 @@ import com.ljmu.andre.snaptools.Utils.PreferenceHelpers.putAndKill
 import com.ljmu.andre.snaptools.Utils.ResourceUtils
 import org.jetbrains.anko.*
 import org.jetbrains.anko.appcompat.v7.themedSwitchCompat
-import com.ljmu.andre.snaptools.ModulePack.ChatSaving.CustomNotifications
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_ADD
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_CHAT
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_CHATSS
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_SNAP
+import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_TYPING
+
 
 /**
  * This class was created by Andre R M (SID: 701439)
@@ -40,7 +46,7 @@ class ChatSettingsViewProvider {
                     var snapstring =  ("default")
                     var chatstring = ("default")
                     var typingstring = ("default")
-                    var addstring = ("defualt")
+                    var addstring = ("default")
 
                     verticalLayout {
                         header("Chat Saving Settings")
@@ -113,7 +119,7 @@ class ChatSettingsViewProvider {
 
                             themedEditText {
                                 setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
-                                setText("SNAP PLACEHOLDER")
+                                setText(getPref<String>(NOTIFICATION_TEXT_SNAP))
                                 setSingleLine()
                                 textSize = 16f
                                 leftPadding = 10.toDp()
@@ -135,7 +141,7 @@ class ChatSettingsViewProvider {
 
                             themedEditText {
                                 setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
-                                setText("CHAT PLACEHOLDER")
+                                setText(getPref<String>(NOTIFICATION_TEXT_CHAT))
                                 setSingleLine()
                                 textSize = 16f
                                 leftPadding = 10.toDp()
@@ -156,7 +162,7 @@ class ChatSettingsViewProvider {
 
                             themedEditText {
                                 setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
-                                setText("TYPING PLACEHOLDER")
+                                setText(getPref<String>(NOTIFICATION_TEXT_TYPING))
                                 setSingleLine()
                                 textSize = 16f
                                 leftPadding = 10.toDp()
@@ -177,7 +183,7 @@ class ChatSettingsViewProvider {
 
                             themedEditText {
                                 setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
-                                setText("ADD PLACEHOLDER")
+                                setText(getPref<String>(NOTIFICATION_TEXT_ADD))
                                 setSingleLine()
                                 textSize = 16f
                                 leftPadding = 10.toDp()
@@ -197,13 +203,15 @@ class ChatSettingsViewProvider {
                             visibility = View.GONE
 
                             setOnClickListener {
-                                CustomNotifications snap = (String) snap.replace(snapstring)
-                                CustomNotifications chat = chat.replace(chatstring)
-                                CustomNotifications typing = typing.replace(typingstring)
-                                CustomNotifications add = add.replace(addstring)
+
+                                putPref(NOTIFICATION_TEXT_SNAP, snapstring)
+                                putPref(NOTIFICATION_TEXT_CHAT, chatstring)
+                                putPref(NOTIFICATION_TEXT_TYPING, typingstring)
+                                putPref(NOTIFICATION_TEXT_ADD, addstring)
                             }
                         }
                     }
                 }
             }.view as T
 }
+

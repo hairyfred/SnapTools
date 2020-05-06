@@ -3,7 +3,9 @@ package com.ljmu.andre.snaptools.ModulePack;
 import android.app.Activity;
 import android.content.Context;
 
+
 import com.ljmu.andre.CBIDatabase.CBITable;
+import com.ljmu.andre.GsonPreferences.Preferences;
 import com.ljmu.andre.snaptools.Exceptions.HookNotFoundException;
 import com.ljmu.andre.snaptools.Fragments.FragmentHelper;
 import com.ljmu.andre.snaptools.ModulePack.Databases.ChatDatabase;
@@ -42,6 +44,14 @@ import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.BLOC
 import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.CHANGE_TYPING_NOTIFICATIONS;
 import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.SAVE_CHAT_IN_SC;
 import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.STORE_CHAT_MESSAGES;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_ADD;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_CHAT;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_CHATSS;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_SNAP;
+import static com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATION_TEXT_TYPING;
+
+
+
 
 /**
  * This class was created by Andre R M (SID: 701439)
@@ -63,6 +73,29 @@ public class ChatSaving extends ModuleHelper {
                .replace("{nickname}", nickname)
                .replace("{receiver}", receiver);
        return text;
+    }
+    public static String getNotificationText(String notifType){
+        Preferences.Preference pref;
+        switch (notifType){
+            case "SNAP":
+                pref = NOTIFICATION_TEXT_SNAP;
+                break;
+            case "CHAT":
+                pref = NOTIFICATION_TEXT_CHAT;
+                break;
+            case "TYPING":
+                pref = NOTIFICATION_TEXT_TYPING;
+                break;
+            case "CHAT_SCREENSHOT":
+                pref = NOTIFICATION_TEXT_CHATSS;
+                break;
+            case "ADD":
+                pref = NOTIFICATION_TEXT_ADD;
+                break;
+            default:
+                return null;
+        }
+        return getPref(pref);
     }
 
     public static String notifReplacer (String notifType){
@@ -157,6 +190,7 @@ public class ChatSaving extends ModuleHelper {
                             // Not too sure what source is, returns null
 
                             String text = notifReplacer(name);
+                            if (text == null) return;
                             XposedHelpers.setObjectField(param.args[0],"r", syntaxReplacer(text, nickname, username, recipient));
                         }
                     }
