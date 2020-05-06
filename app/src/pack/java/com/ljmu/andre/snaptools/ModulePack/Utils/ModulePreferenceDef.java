@@ -159,26 +159,26 @@ public class ModulePreferenceDef extends ConstantDefiner<Preference> {
 
     public static final Preference NOTIFICATION_TEXT_SNAP = new Preference(
             "NOTIFICATION_TEXT_SNAP",
-            "Default Notification", String.class
+            null, String.class
     );
 
     public static final Preference NOTIFICATION_TEXT_CHAT = new Preference(
             "NOTIFICATION_TEXT_CHAT",
-            "Default Notification", String.class
+            null, String.class
     );
     public static final Preference NOTIFICATION_TEXT_TYPING = new Preference(
             "NOTIFICATION_TEXT_TYPING",
-            "Default Notification", String.class
+            null, String.class
     );
 
     public static final Preference NOTIFICATION_TEXT_CHATSS = new Preference(
             "NOTIFICATION_TEXT_CHATSS",
-            "Default Notification", String.class
+            null, String.class
     );
 
     public static final Preference NOTIFICATION_TEXT_ADD = new Preference(
             "NOTIFICATION_TEXT_ADD",
-            "Default Notification", String.class
+            null, String.class
     );
 
 
