@@ -53,7 +53,7 @@ public class ChatSaving extends ModuleHelper {
     private CBITable<ChatObject> chatTable;
     private CBITable<ConversationObject> conversationTable;
     private String yourUsername;
-
+    public String typing;
     public ChatSaving(String name, boolean canBeDisabled) {
         super(name, canBeDisabled);
     }
@@ -106,7 +106,7 @@ public class ChatSaving extends ModuleHelper {
                     }
             );
         }
-// HAYDS NOTIFICATIONS
+
         if (getPref(CHANGE_TYPING_NOTIFICATIONS)) {
             hookMethod(
                     CHAT_NOTIFICATION,
@@ -126,9 +126,12 @@ public class ChatSaving extends ModuleHelper {
                             // Username of the account the message is being sent to
                             String source = (String) XposedHelpers.getObjectField(param.args[0], "d");
                             // Not too sure what source is, returns null
-
+                            String typing = "";
+                            String chat = "";
+                            String snap = "";
+                            String add = "";
                             if (name.contains("TYPING")) {
-                                XposedHelpers.setObjectField(param.args[0],"r", String.format("%s needs to back the fuck off...", nickname));
+                                XposedHelpers.setObjectField(param.args[0],"r", typing);
                             }
 
                             if (name.contains("CHAT")) {
@@ -136,15 +139,15 @@ public class ChatSaving extends ModuleHelper {
                                     XposedHelpers.setObjectField(param.args[0],"r",  String.format("%s Notice: Account Lock.", nickname)); }
                                     //Just a bit of fun for when Snapchat send you a message
                                 else{
-                                    XposedHelpers.setObjectField(param.args[0],"r", String.format("Great. %s has sent a message", nickname)); }
+                                    XposedHelpers.setObjectField(param.args[0],"r", chat); }
                             }
 
                             if (name.contains("SNAP")) {
-                                XposedHelpers.setObjectField(param.args[0],"r", String.format("%s sent a dick pic.", nickname));
+                                XposedHelpers.setObjectField(param.args[0],"r", snap);
                             }
 
                             if (name.contains("ADD")) {
-                                XposedHelpers.setObjectField(param.args[0],"r", String.format("%s added you for your nudes.", nickname));
+                                XposedHelpers.setObjectField(param.args[0],"r", add);
                             }
                         }
                     }
