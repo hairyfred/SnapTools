@@ -171,7 +171,7 @@ public class ChatSaving extends ModuleHelper {
                             // Not too sure what source is, returns null
 
                             String text = setNotificationText(name);
-                            //if (text == null) return;
+                            if (text == null) return;
                             XposedHelpers.setObjectField(param.args[0],"r", syntaxReplacer(text, nickname, username, recipient));
                         }
                     }
