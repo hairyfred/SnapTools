@@ -106,7 +106,7 @@ public class ChatSaving extends ModuleHelper {
                     }
             );
         }
-        // HAYDS SWEARIFY STUFF
+
         if (getPref(CHANGE_TYPING_NOTIFICATIONS)) {
             hookMethod(
                     CHAT_NOTIFICATION,
@@ -118,28 +118,39 @@ public class ChatSaving extends ModuleHelper {
 
                             Timber.d("Notification inbound: " + notificationType);
 
+                            String nickname = (String) XposedHelpers.getObjectField(param.args[0], "o");
+                            // Nickname of SENDER (First & Last name or name user has set)
+                            String username = (String) XposedHelpers.getObjectField(param.args[0], "p");
+                            // Username of SENDER (The name would use to add)
+                            String receiverUsername = (String) XposedHelpers.getObjectField(param.args[0], "q");
+                            // Username of the account the message is being sent to
+                            String source = (String) XposedHelpers.getObjectField(param.args[0], "d");
+                            // Not too sure what source is, returns null
+
                             if (name.contains("TYPING")) {
-                                String user = (String) XposedHelpers.getObjectField(param.args[0], "o");
-                                XposedHelpers.setObjectField(param.args[0],"r", user + " needs to back the fuck off...");
+                                XposedHelpers.setObjectField(param.args[0],"r", String.format("%s needs to back the fuck off...", nickname));
                             }
 
                             if (name.contains("CHAT")) {
-                                String user = (String) XposedHelpers.getObjectField(param.args[0], "o");
-                                XposedHelpers.setObjectField(param.args[0],"r", "Great." + user + " went through with it and now you've got a message.");
+                                if (username.equals("teamsnapchat")){
+                                    XposedHelpers.setObjectField(param.args[0],"r",  String.format("%s Notice: Account Lock.", nickname)); }
+                                    //Just a bit of fun for when Snapchat send you a message
+                                else{
+                                    XposedHelpers.setObjectField(param.args[0],"r", String.format("Great. %s has sent a message", nickname)); }
                             }
-
 
                             if (name.contains("SNAP")) {
-                                String user = (String) XposedHelpers.getObjectField(param.args[0], "o");
-                                XposedHelpers.setObjectField(param.args[0],"r", user + " sent you a booty pic for you to screenshot.");
-
+                                XposedHelpers.setObjectField(param.args[0],"r", String.format("%s sent a dick pic.", nickname));
                             }
 
+                            if (name.contains("ADD")) {
+                                XposedHelpers.setObjectField(param.args[0],"r", String.format("%s added you for your nudes.", nickname));
+                            }
                         }
                     }
             );
         }
-        // HAYDS SWEARIFY STUFF
+
         if (getPref(STORE_CHAT_MESSAGES)) {
             try {
                 ChatDatabase.init(snapContext);
