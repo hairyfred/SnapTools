@@ -22,6 +22,7 @@ import com.ljmu.andre.snaptools.Utils.PreferenceHelpers.putAndKill
 import com.ljmu.andre.snaptools.Utils.ResourceUtils
 import org.jetbrains.anko.*
 import org.jetbrains.anko.appcompat.v7.themedSwitchCompat
+import com.ljmu.andre.snaptools.ModulePack.ChatSaving.CustomNotifications
 
 /**
  * This class was created by Andre R M (SID: 701439)
@@ -196,7 +197,10 @@ class ChatSettingsViewProvider {
                             visibility = View.GONE
 
                             setOnClickListener {
-                                // CODE TO REPLACE HAYDS STRING HERE
+                                CustomNotifications snap = (String) snap.replace(snapstring)
+                                CustomNotifications chat = chat.replace(chatstring)
+                                CustomNotifications typing = typing.replace(typingstring)
+                                CustomNotifications add = add.replace(addstring)
                             }
                         }
                     }

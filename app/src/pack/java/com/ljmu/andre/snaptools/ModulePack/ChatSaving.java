@@ -63,6 +63,12 @@ public class ChatSaving extends ModuleHelper {
         return new ChatManagerFragment[]{new ChatManagerFragment()};
     }
 
+    public class CustomNotifications {
+        public var typing = "";
+        public String chat = "";
+        public String snap = "";
+        public String add = "";
+    }
     @Override
     public void loadHooks(ClassLoader snapClassLoader, Context snapContext) {
 		/*findAndHookMethod(
@@ -126,10 +132,7 @@ public class ChatSaving extends ModuleHelper {
                             // Username of the account the message is being sent to
                             String source = (String) XposedHelpers.getObjectField(param.args[0], "d");
                             // Not too sure what source is, returns null
-                            String typing = "";
-                            String chat = "";
-                            String snap = "";
-                            String add = "";
+                            }
                             if (name.contains("TYPING")) {
                                 XposedHelpers.setObjectField(param.args[0],"r", typing);
                             }
