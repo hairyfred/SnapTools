@@ -92,6 +92,8 @@ class ChatSettingsViewProvider {
                             }
                         }
 
+                        header("Custom Notification Settings")
+
                         themedSwitchCompat(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
                             verticalPadding = 5.toDp()
                             horizontalPadding = 10.toDp()
@@ -102,9 +104,6 @@ class ChatSettingsViewProvider {
                                 putAndKill(CHANGE_TYPING_NOTIFICATIONS, isChecked, activity)
                             }
                         }
-
-                        headerNoUnderline("Custom notifications settings", Gravity.CENTER)
-
 
                         linearLayout {
                             label("Snap").lparams(width = matchParent, weight = 2f) {
