@@ -58,33 +58,13 @@ public class ChatSaving extends ModuleHelper {
         super(name, canBeDisabled);
     }
 
-    public static String typingReplacer (String typing, String nickname, String username, String receiverUsername){
-        typing = typing.replace("{username}", username);
-        typing = typing.replace("{nickname}", nickname);
-        typing = typing.replace("{recipient}", receiverUsername);
-        return typing;
+    public static String notifReplacer (String notifType, String nickname, String username, String receiverUsername){
+       notifType = notifType.replace("{username}", username);
+       notifType = notifType.replace("{nickname}", nickname);
+       notifType = notifType.replace("{receiver}", receiverUsername);
+       return notifType;
     }
 
-    public static String chatReplacer (String chat, String nickname, String username, String recipient){
-        chat = chat.replace("{username}", username);
-        chat = chat.replace("{nickname}", nickname);
-        chat = chat.replace("{recipient}", recipient);
-        return chat;
-    }
-
-    public static String snapReplacer (String snap, String nickname, String username, String recipient){
-        snap = snap.replace("{username}", username);
-        snap = snap.replace("{nickname}", nickname);
-        snap = snap.replace("{recipient}", recipient);
-        return snap;
-    }
-
-    public static String addReplacer (String add, String nickname, String username, String recipient){
-        add = add.replace("{username}", username);
-        add = add.replace("{nickname}", nickname);
-        add = add.replace("{recipient}", recipient);
-        return add;
-    }
     @Override
     public FragmentHelper[] getUIFragments() {
         return new ChatManagerFragment[]{new ChatManagerFragment()};
@@ -153,27 +133,28 @@ public class ChatSaving extends ModuleHelper {
                             // Username of the account the message is being sent to
                             String source = (String) XposedHelpers.getObjectField(param.args[0], "d");
                             // Not too sure what source is, returns null
-                            String typing = "";
-                            String chat = "";
-                            String snap = "";
-                            String add = "";
+
                             if (name.contains("TYPING")) {
-                                XposedHelpers.setObjectField(param.args[0],"r", typingReplacer(typing, username, nickname, recipient));
+                                String typing = "";
+                                XposedHelpers.setObjectField(param.args[0],"r", notifReplacer(typing, username, nickname, recipient));
                             }
 
                             if (name.contains("CHAT")) {
                                 if (username.equals("teamsnapchat")){
                                     XposedHelpers.setObjectField(param.args[0],"r",  String.format("%s Notice: Account Lock.", nickname)); }
                                 else{
-                                    XposedHelpers.setObjectField(param.args[0],"r", chatReplacer(chat, username, nickname, recipient)); }
+                                    String chat = "";
+                                    XposedHelpers.setObjectField(param.args[0],"r", notifReplacer(chat, username, nickname, recipient)); }
                             }
 
                             if (name.contains("SNAP")) {
-                                XposedHelpers.setObjectField(param.args[0],"r", snapReplacer(snap, username, nickname, recipient));
+                                String snap = "";
+                                XposedHelpers.setObjectField(param.args[0],"r", notifReplacer(snap, username, nickname, recipient));
                             }
 
                             if (name.contains("ADD")) {
-                                XposedHelpers.setObjectField(param.args[0],"r", add);
+                                String add = "";
+                                XposedHelpers.setObjectField(param.args[0],"r", notifReplacer(add, username, nickname, recipient));
                             }
                         }
                     }
