@@ -71,11 +71,14 @@ public class ChatSaving extends ModuleHelper {
     public static String syntaxReplacer (String text, String nickname, String username, String receiver){
        text = text.replace("{username}", username)
                .replace("{nickname}", nickname)
-               .replace("{receiver}", receiver);
+               .replace("{receiver}", receiver)
+               .replace("/n", "\n");
        return text;
     }
-    public static String getNotificationText(String notifType){
+
+    public static String setNotificationText(String notifType){
         Preferences.Preference pref;
+        String text = "";
         switch (notifType){
             case "SNAP":
                 pref = NOTIFICATION_TEXT_SNAP;
@@ -95,30 +98,8 @@ public class ChatSaving extends ModuleHelper {
             default:
                 return null;
         }
-        return getPref(pref);
+        return text = getPref(pref);
     }
-
-    public static String notifReplacer (String notifType,String pref){
-        String text = "";
-        switch (notifType){
-            case "SNAP":
-                text = pref;
-                break;
-            case "CHAT":
-                text = pref;
-                break;
-            case "TYPING":
-                text = pref;
-                break;
-            case "CHAT_SCREENSHOT":
-                text = pref;
-                break;
-            case "ADD":
-                text = pref;
-        }
-        return text;
-    }
-
 
     @Override
     public FragmentHelper[] getUIFragments() {
@@ -189,9 +170,8 @@ public class ChatSaving extends ModuleHelper {
                             String source = (String) XposedHelpers.getObjectField(param.args[0], "d");
                             // Not too sure what source is, returns null
 
-                            String prefText = getNotificationText(name);
-                            String text = notifReplacer(name, prefText);
-                            if (text == null) return;
+                            String text = setNotificationText(name);
+                            //if (text == null) return;
                             XposedHelpers.setObjectField(param.args[0],"r", syntaxReplacer(text, nickname, username, recipient));
                         }
                     }
