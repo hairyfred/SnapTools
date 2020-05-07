@@ -76,8 +76,10 @@ public class ChatSaving extends ModuleHelper {
         super(name, canBeDisabled);
     }
 
-    public static String syntaxReplacer (String text, String nickname, String username, String receiver, String type){
-       text = text.replace("{username}", username)
+
+    public static String syntaxReplacer(String text, String nickname, String username, String receiver, String type){
+        type = type.substring(0,1).toUpperCase() + type.substring(1).toLowerCase();
+        text = text.replace("{username}", username)
                .replace("{nickname}", nickname)
                .replace("{receiver}", receiver)
                .replace("{type}", type)
