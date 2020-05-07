@@ -49,19 +49,19 @@ class ChatSettingsViewProvider {
             activity.UI {
                 scrollView {
                     lparams(matchParent, matchParent)
-                    var snapstring =  ("")
-                    var chatstring = ("")
-                    var chatsstring = ("")
-                    var typingstring = ("")
-                    var addstring = ("")
-                    var callstring = ("")
-                    var videostring = ("")
-                    var abandoncallstring = ("")
-                    var abandonvideostring = ("")
-                    var addbackstring = ("")
-                    var crollstring = ("")
-                    var replaystring = ("")
-                    var screenshotstring = ("")
+                    var snapstring =  (getPref<String>(NOTIFICATION_TEXT_SNAP))
+                    var chatstring = (getPref<String>(NOTIFICATION_TEXT_CHAT))
+                    var chatsstring = (getPref<String>(NOTIFICATION_TEXT_CHATSS))
+                    var typingstring = (getPref<String>(NOTIFICATION_TEXT_TYPING))
+                    var addstring = (getPref<String>(NOTIFICATION_TEXT_ADD))
+                    var callstring = (getPref<String>(NOTIFICATION_TEXT_CALL))
+                    var videostring = (getPref<String>(NOTIFICATION_TEXT_VIDEO))
+                    var abandoncallstring = (getPref<String>(NOTIFICATION_TEXT_ABANDONCALL))
+                    var abandonvideostring = (getPref<String>(NOTIFICATION_TEXT_ABANDONVIDEO))
+                    var addbackstring = (getPref<String>(NOTIFICATION_TEXT_ADDBACK))
+                    var crollstring = (getPref<String>(NOTIFICATION_TEXT_CROLL))
+                    var replaystring = (getPref<String>(NOTIFICATION_TEXT_REPLAY))
+                    var screenshotstring = (getPref<String>(NOTIFICATION_TEXT_SCREENSHOT))
 
                     verticalLayout {
                         header("Chat Saving Settings")
@@ -452,7 +452,7 @@ class ChatSettingsViewProvider {
                                 if (replaystring.isEmpty()) {
                                     putPref(NOTIFICATION_TEXT_REPLAY, null)
                                 }else {
-                                    putPref(NOTIFICATION_TEXT_CALL, replaystring)
+                                    putPref(NOTIFICATION_TEXT_REPLAY, replaystring)
                                 }
                                 if (addbackstring.isEmpty()) {
                                     putPref(NOTIFICATION_TEXT_ADDBACK, null)
