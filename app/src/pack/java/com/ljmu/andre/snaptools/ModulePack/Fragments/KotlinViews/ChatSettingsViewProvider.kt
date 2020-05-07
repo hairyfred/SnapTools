@@ -409,21 +409,71 @@ class ChatSettingsViewProvider {
                             visibility = View.GONE
 
                             setOnClickListener {
-
-                                putPref(NOTIFICATION_TEXT_SNAP, snapstring)
-                                putPref(NOTIFICATION_TEXT_CHAT, chatstring)
-                                putPref(NOTIFICATION_TEXT_TYPING, typingstring)
-                                putPref(NOTIFICATION_TEXT_ADD, addstring)
-                                putPref(NOTIFICATION_TEXT_CHATSS, chatsstring)
-                                putPref(NOTIFICATION_TEXT_CROLL, crollstring)
-                                putPref(NOTIFICATION_TEXT_VIDEO, videostring)
-                                putPref(NOTIFICATION_TEXT_CALL, callstring)
-                                putPref(NOTIFICATION_TEXT_REPLAY, replaystring)
-                                putPref(NOTIFICATION_TEXT_ADDBACK, addbackstring)
-                                putPref(NOTIFICATION_TEXT_SCREENSHOT, screenshotstring )
-                                putPref(NOTIFICATION_TEXT_ABANDONCALL, abandoncallstring )
-                                putPref(NOTIFICATION_TEXT_ABANDONVIDEO, abandonvideostring )
-
+                                if  (snapstring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_SNAP, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_SNAP, snapstring)
+                                }
+                                if (chatstring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_CHAT, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_CHAT, chatstring)
+                                }
+                                if (typingstring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_TYPING, null)
+                                }else{
+                                    putPref(NOTIFICATION_TEXT_TYPING, typingstring)
+                                }
+                                if (addstring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_ADD, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_ADD, addstring)
+                                }
+                                if (chatsstring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_CHATSS, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_CHATSS, chatsstring)
+                                }
+                                if (crollstring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_CROLL, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_CROLL, crollstring)
+                                }
+                                if (videostring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_VIDEO, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_VIDEO, videostring)
+                                }
+                                if (callstring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_CALL, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_CALL, callstring)
+                                }
+                                if (replaystring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_REPLAY, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_CALL, replaystring)
+                                }
+                                if (addbackstring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_ADDBACK, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_ADDBACK, addbackstring)
+                                }
+                                if (screenshotstring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_SCREENSHOT, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_SCREENSHOT, screenshotstring )
+                                }
+                                if (abandoncallstring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_ABANDONCALL, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_ABANDONCALL, abandoncallstring )
+                                }
+                                if (abandonvideostring.isEmpty()) {
+                                    putPref(NOTIFICATION_TEXT_ABANDONVIDEO, null)
+                                }else {
+                                    putPref(NOTIFICATION_TEXT_ABANDONVIDEO, abandonvideostring )
+                                }
                             }
                         }
                     }
