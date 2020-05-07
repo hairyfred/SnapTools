@@ -277,6 +277,28 @@ class ChatSettingsViewProvider {
                             }.lparams(width = matchParent, weight = 1f)
                         }
                         linearLayout {
+                            label("Saved Chat Image").lparams(width = matchParent, weight = 2f) {
+                                gravity = Gravity.CENTER_VERTICAL
+                            }
+
+                            themedEditText {
+                                setTextAppearance(context, ResourceUtils.getStyle(context, "DefaultText"))
+                                setText(getPref<String>(NOTIFICATION_TEXT_CROLL))
+                                setSingleLine()
+                                textSize = 16f
+                                leftPadding = 10.toDp()
+                                gravity = Gravity.CENTER_VERTICAL
+
+                                addTextChangedListener(object : ViewFactory.EditTextListener() {
+                                    override fun textChanged(source: EditText?, editable: Editable?) {
+                                        crollstring = editable.toString()
+                                        activity.find<Button>("button_apply_Custom_notifications".toId()).visibility = View.VISIBLE
+                                    }
+                                })
+                            }.lparams(width = matchParent, weight = 1f)
+                        }
+
+                        linearLayout {
                             label("Replay").lparams(width = matchParent, weight = 2f) {
                                 gravity = Gravity.CENTER_VERTICAL
                             }
