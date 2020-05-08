@@ -113,7 +113,6 @@ class ChatSettingsViewProvider {
                                 "CHAT" to "Chat",
                                 "TYPING" to "Typing",
                                 "CHAT_SCREENSHOT" to "Chat Screenshot",
-                                "STATUS_BAR" to "",
                                 "ADD" to "Add",
                                 "SCREENSHOT" to "Snap Screenshot",
                                 "REPLAY" to "Replay",
@@ -121,7 +120,7 @@ class ChatSettingsViewProvider {
                                 "ADDFRIEND" to "Added Back",
                                 "INITIATE_AUDIO" to "Call",
                                 "INITIATE_VIDEO" to "Video"
-                                // Not implemented since "broken": ABANDON_AUDIO, ABANDON_VIDEO
+                                // Not implemented since "broken": ABANDON_AUDIO, ABANDON_VIDEO, STATUS_BAR
                         )
                         fun ViewManager.addTextBox(title: String, typeName: String): EditText {
                             var textBox: EditText? = null
@@ -140,7 +139,7 @@ class ChatSettingsViewProvider {
 
                                     addTextChangedListener(object : ViewFactory.EditTextListener() {
                                         override fun textChanged(source: EditText?, editable: Editable?) {
-                                            activity.find<Button>("button_apply_Custom_notifications".toId()).isActivated = true
+                                            activity.find<Button>("button_apply_Custom_notifications".toId()).isEnabled = true
                                         }
                                     })
                                 }.lparams(width = matchParent, weight = 1f)
@@ -155,8 +154,7 @@ class ChatSettingsViewProvider {
                         themedButton(ResourceUtils.getStyle(context, "NeutralButton")) {
                             id = "button_apply_Custom_notifications".toId()
                             text = "Apply Custom notifications"
-                            isActivated = false
-                            visibility = View.GONE
+                            isEnabled = false
 
                             setOnClickListener {
                                 putAndKill(CUSTOM_NOTIFICATION_TEXTS, boxes.associate { (k, box) ->
