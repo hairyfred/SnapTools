@@ -43,6 +43,14 @@ import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.NOTIFICATIO
 
 @Suppress("DEPRECATION", "UNCHECKED_CAST")
 class ChatSettingsViewProvider {
+    fun putPrefSafe(key: Preferences.Preference, value: String) {
+        if (value.isEmpty()) {
+            putPref(key, null)
+        } else {
+            putPref(key, value)
+        }
+    }
+
 
     @SuppressLint("ResourceType")
     fun <T : ViewGroup> getMainContainer(activity: Activity): T =
@@ -409,71 +417,19 @@ class ChatSettingsViewProvider {
                             visibility = View.GONE
 
                             setOnClickListener {
-                                if  (snapstring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_SNAP, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_SNAP, snapstring)
-                                }
-                                if (chatstring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_CHAT, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_CHAT, chatstring)
-                                }
-                                if (typingstring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_TYPING, null)
-                                }else{
-                                    putPref(NOTIFICATION_TEXT_TYPING, typingstring)
-                                }
-                                if (addstring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_ADD, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_ADD, addstring)
-                                }
-                                if (chatsstring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_CHATSS, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_CHATSS, chatsstring)
-                                }
-                                if (crollstring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_CROLL, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_CROLL, crollstring)
-                                }
-                                if (videostring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_VIDEO, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_VIDEO, videostring)
-                                }
-                                if (callstring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_CALL, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_CALL, callstring)
-                                }
-                                if (replaystring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_REPLAY, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_REPLAY, replaystring)
-                                }
-                                if (addbackstring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_ADDBACK, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_ADDBACK, addbackstring)
-                                }
-                                if (screenshotstring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_SCREENSHOT, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_SCREENSHOT, screenshotstring )
-                                }
-                                if (abandoncallstring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_ABANDONCALL, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_ABANDONCALL, abandoncallstring )
-                                }
-                                if (abandonvideostring.isEmpty()) {
-                                    putPref(NOTIFICATION_TEXT_ABANDONVIDEO, null)
-                                }else {
-                                    putPref(NOTIFICATION_TEXT_ABANDONVIDEO, abandonvideostring )
-                                }
+                                putPrefSafe(NOTIFICATION_TEXT_SNAP, snapstring)
+                                putPrefSafe(NOTIFICATION_TEXT_CHAT, chatstring)
+                                putPrefSafe(NOTIFICATION_TEXT_TYPING, typingstring)
+                                putPrefSafe(NOTIFICATION_TEXT_ADD, addstring)
+                                putPrefSafe(NOTIFICATION_TEXT_ADDBACK, addbackstring)
+                                putPrefSafe(NOTIFICATION_TEXT_CHATSS, chatsstring)
+                                putPrefSafe(NOTIFICATION_TEXT_SCREENSHOT, screenshotstring)
+                                putPrefSafe(NOTIFICATION_TEXT_CROLL, crollstring)
+                                putPrefSafe(NOTIFICATION_TEXT_REPLAY, replaystring)
+                                putPrefSafe(NOTIFICATION_TEXT_CALL, callstring)
+                                putPrefSafe(NOTIFICATION_TEXT_ABANDONCALL, abandoncallstring)
+                                putPrefSafe(NOTIFICATION_TEXT_VIDEO, videostring)
+                                putPrefSafe(NOTIFICATION_TEXT_ABANDONVIDEO, abandonvideostring)
                             }
                         }
                     }
