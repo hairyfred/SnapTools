@@ -12,7 +12,7 @@ public class HookClassDef extends ConstantDefiner<HookClassDef.HookClass> {
     public static final HookClass CHAT_DIRECT_VIEW_MARKER = new HookClass("CHAT_DIRECT_VIEW_MARKER", "aogv");
     public static final HookClass CHAT_GROUP_VIEW_MARKER = new HookClass("CHAT_GROUP_VIEW_MARKER", "aohx");
     public static final HookClass CHAT_HEADER_METADATA = new HookClass("CHAT_HEADER_METADATA", "bbtq");
-    public static final HookClass CHAT_IMAGE_METADATA = new HookClass("CHAT_IMAGE_METADATA", "apma");
+    public static final HookClass CHAT_IMAGE_METADATA = new HookClass("CHAT_IMAGE_METADATA", "aosk");
     public static final HookClass CHAT_MESSAGE_VIEW_HOLDER = new HookClass("CHAT_MESSAGE_VIEW_HOLDER", "apcm");
     public static final HookClass CHAT_METADATA = new HookClass("CHAT_METADATA", "bblp");
     public static final HookClass CHAT_METADATA_JSON_PARSER = new HookClass("CHAT_METADATA_JSON_PARSER", "bblq");
