@@ -26,7 +26,7 @@ public class HookDef extends ConstantDefiner<HookDef.Hook> {
     public static final Hook BATCHED_MEDIA_LIMITER = new Hook("BATCHED_MEDIA_LIMITER", HookClassDef.SENT_VIDEO, "aV", new Object[0]);
     public static final Hook CAMERA_IS_VISIBLE = new Hook("CAMERA_IS_VISIBLE", HookClassDef.CAMERA_FRAGMENT, "a", "azdk");
     public static final Hook CAPTION_CREATE_HOOK = new Hook("CAPTION_CREATE_HOOK", HookClassDef.CAPTION_MANAGER_CLASS, "onCreateActionMode", ActionMode.class, Menu.class);
-    public static final Hook CHAT_IMAGE_GET_ALGORITHM = new Hook("CHAT_IMAGE_GET_ALGORITHM", HookClassDef.CHAT_IMAGE_METADATA, "a", HookClassDef.CHAT_VIDEO.getStrClass());
+    public static final Hook CHAT_IMAGE_GET_ALGORITHM = new Hook("CHAT_IMAGE_GET_ALGORITHM", HookClassDef.CHAT_IMAGE_METADATA, "b", HookClassDef.CHAT_VIDEO.getStrClass());
     public static final Hook CHAT_ISSAVED_INAPP = new Hook("CHAT_ISSAVED_INAPP", (HookClassDef.HookClass) null, "eC_", new Object[0]);
     public static final Hook CHAT_MESSAGE_VIEW_MEASURE = new Hook("CHAT_MESSAGE_VIEW_MEASURE", HookClassDef.CHAT_MESSAGE_VIEW_HOLDER, "F", new Object[0]);
     public static final Hook CHAT_METADATA_READ = new Hook("CHAT_METADATA_READ", HookClassDef.CHAT_METADATA_JSON_PARSER, "a", "com.google.gson.stream.JsonReader");
