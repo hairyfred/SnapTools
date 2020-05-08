@@ -157,68 +157,9 @@ public class ModulePreferenceDef extends ConstantDefiner<Preference> {
             StealthPosition.TOP.name(), String.class
     );
 
-    public static final Preference NOTIFICATION_TEXT_SNAP = new Preference(
-            "NOTIFICATION_TEXT_SNAP",
-            null, String.class
-    );
-
-    public static final Preference NOTIFICATION_TEXT_CHAT = new Preference(
-            "NOTIFICATION_TEXT_CHAT",
-            null, String.class
-    );
-    public static final Preference NOTIFICATION_TEXT_TYPING = new Preference(
-            "NOTIFICATION_TEXT_TYPING",
-            null, String.class
-    );
-
-    public static final Preference NOTIFICATION_TEXT_CHATSS = new Preference(
-            "NOTIFICATION_TEXT_CHATSS",
-            null, String.class
-    );
-
-    public static final Preference NOTIFICATION_TEXT_ADD = new Preference(
-            "NOTIFICATION_TEXT_ADD",
-            null, String.class
-    );
-
-    public static final Preference NOTIFICATION_TEXT_ADDBACK = new Preference(
-            "NOTIFICATION_TEXT_ADDBACK",
-            null, String.class
-    );
-
-    public static final Preference NOTIFICATION_TEXT_CROLL = new Preference(
-            "NOTIFICATION_TEXT_CROLL",
-            null, String.class
-    );
-
-    public static final Preference NOTIFICATION_TEXT_REPLAY = new Preference(
-            "NOTIFICATION_TEXT_REPLAY",
-            null, String.class
-    );
-
-    public static final Preference NOTIFICATION_TEXT_SCREENSHOT = new Preference(
-            "NOTIFICATION_TEXT_SCREENSHOT",
-            null, String.class
-    );
-
-    public static final Preference NOTIFICATION_TEXT_VIDEO = new Preference(
-            "NOTIFICATION_TEXT_VIDEO",
-            null, String.class
-    );
-
-    public static final Preference NOTIFICATION_TEXT_CALL = new Preference(
-            "NOTIFICATION_TEXT_CALL",
-            null, String.class
-    );
-
-    public static final Preference NOTIFICATION_TEXT_ABANDONCALL = new Preference(
-            "NOTIFICATION_TEXT_ABANDONCALL",
-            null, String.class
-    );
-
-    public static final Preference NOTIFICATION_TEXT_ABANDONVIDEO = new Preference(
-            "NOTIFICATION_TEXT_ABANDONVIDEO",
-            null, String.class
+    public static final Preference CUSTOM_NOTIFICATION_TEXTS = new Preference(
+            "CUSTOM_NOTIFICATION_TEXTS",
+            new HashMap<String, String>(), HashMap.class
     );
     // ===========================================================================
 
