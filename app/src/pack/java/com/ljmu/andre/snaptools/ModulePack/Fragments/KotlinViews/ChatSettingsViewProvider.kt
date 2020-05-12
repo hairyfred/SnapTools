@@ -20,8 +20,8 @@ import com.ljmu.andre.snaptools.ModulePack.Utils.ModulePreferenceDef.*
 import com.ljmu.andre.snaptools.ModulePack.Utils.ViewFactory
 import com.ljmu.andre.snaptools.Utils.PreferenceHelpers.putAndKill
 import com.ljmu.andre.snaptools.Utils.ResourceUtils
+import com.ljmu.andre.snaptools.Utils.themedSwitchCompatX
 import org.jetbrains.anko.*
-import org.jetbrains.anko.appcompat.v7.themedSwitchCompat
 
 /**
  * This class was created by Andre R M (SID: 701439)
@@ -48,7 +48,7 @@ class ChatSettingsViewProvider {
                     verticalLayout {
                         header("Chat Saving Settings")
 
-                        themedSwitchCompat(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
+                        themedSwitchCompatX(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
                             verticalPadding = 5.toDp()
                             horizontalPadding = 10.toDp()
                             text = "Auto save messages in app"
@@ -59,7 +59,7 @@ class ChatSettingsViewProvider {
                             }
                         }
 
-                        themedSwitchCompat(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
+                        themedSwitchCompatX(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
                             verticalPadding = 5.toDp()
                             horizontalPadding = 10.toDp()
                             text = "Store messages locally"
@@ -72,7 +72,7 @@ class ChatSettingsViewProvider {
 
                         header("Chat Notifications")
 
-                        themedSwitchCompat(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
+                        themedSwitchCompatX(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
                             verticalPadding = 5.toDp()
                             horizontalPadding = 10.toDp()
                             text = "Disable inbound 'X is typing' notifications"
