@@ -178,6 +178,162 @@ class MiscChangesViewProvider(
     // ===========================================================================
 
 
+    /**
+     * ===========================================================================
+     * Setup Experiments Page
+     * ===========================================================================
+     */
+
+    @SuppressLint("ResourceType")
+/*    fun <T : ViewGroup> initExperimentsPage(): T =
+            activity.UI {
+                scrollView {
+                    lparams(matchParent, matchParent)
+                    id = "experiments_scrollview".toId()
+
+                    verticalLayout {
+
+                        textView("Experimental features/settings provided by snapchat") {
+                            textColor = ContextCompat.getColor(activity, getColor(activity, "errorLight"))
+                            gravity = Gravity.CENTER
+                        }.lparams(matchParent)
+
+//                        labelledSpinner(
+//                                label = "Cheetah Chat UI: ",
+//                                initialItem = getPref<String>(FORCE_CHEETAH_CHAT_STATE),
+//                                items = onOffDefaultList,
+//                                id = "spinner_cheetah",
+//                                itemSelectedListener = ViewFactory.OnItemChangedProvider<String>(
+//                                        { newItem, _, _ ->
+//                                            putAndKill(FORCE_CHEETAH_CHAT_STATE, newItem, activity)
+//                                        },
+//                                        { getPref<String>(FORCE_CHEETAH_CHAT_STATE) }
+//                                ))
+
+                        labelledSpinner(
+                                label = "Insights: ",
+                                initialItem = getPref<String>(FORCE_INSIGHTS_STATE),
+                                items = onOffDefaultList,
+                                id = "spinner_insights",
+                                itemSelectedListener = ViewFactory.OnItemChangedProvider<String>(
+                                        { newItem, _, _ ->
+                                            putAndKill(FORCE_INSIGHTS_STATE, newItem, activity)
+                                        },
+                                        { getPref<String>(FORCE_INSIGHTS_STATE) }
+                                ))
+
+                        labelledSpinner(
+                                label = "Video Chat: ",
+                                initialItem = getPref<String>(FORCE_CHAT_VIDEO_STATE),
+                                items = onOffDefaultList,
+                                id = "spinner_videochat",
+                                itemSelectedListener = ViewFactory.OnItemChangedProvider<String>(
+                                        { newItem, _, _ ->
+                                            putAndKill(FORCE_CHAT_VIDEO_STATE, newItem, activity)
+                                        },
+                                        { getPref<String>(FORCE_CHAT_VIDEO_STATE) }
+                                ))
+
+                        labelledSpinner(
+                                label = "Animated Content: ",
+                                initialItem = getPref<String>(FORCE_ANIMATED_CONTENT_STATE),
+                                items = onOffDefaultList,
+                                id = "spinner_animatedcontent",
+                                itemSelectedListener = ViewFactory.OnItemChangedProvider<String>(
+                                        { newItem, _, _ ->
+                                            putAndKill(FORCE_ANIMATED_CONTENT_STATE, newItem, activity)
+                                        },
+                                        { getPref<String>(FORCE_ANIMATED_CONTENT_STATE) }
+                                ))
+
+                        labelledSpinner(
+                                label = "Giphy Stickers: ",
+                                initialItem = getPref<String>(FORCE_GIPHY_STATE),
+                                items = onOffDefaultList,
+                                id = "spinner_giphy",
+                                itemSelectedListener = ViewFactory.OnItemChangedProvider<String>(
+                                        { newItem, _, _ ->
+                                            putAndKill(FORCE_GIPHY_STATE, newItem, activity)
+                                        },
+                                        { getPref<String>(FORCE_GIPHY_STATE) }
+                                ))
+
+                        labelledSpinner(
+                                label = "Captions V2: ",
+                                initialItem = getPref<String>(FORCE_CAPTIONV2_STATE),
+                                items = onOffDefaultList,
+                                id = "spinner_captionsv2",
+                                itemSelectedListener = ViewFactory.OnItemChangedProvider<String>(
+                                        { newItem, _, _ ->
+                                            putAndKill(FORCE_CAPTIONV2_STATE, newItem, activity)
+                                        },
+                                        { getPref<String>(FORCE_CAPTIONV2_STATE) }
+                                ))
+
+                        labelledSpinner(
+                                label = "Camera2: ",
+                                initialItem = getPref<String>(FORCE_CAMERA2_STATE),
+                                items = onOffDefaultList,
+                                id = "spinner_camera2",
+                                itemSelectedListener = ViewFactory.OnItemChangedProvider<String>(
+                                        { newItem, _, _ ->
+                                            putAndKill(FORCE_CAMERA2_STATE, newItem, activity)
+                                        },
+                                        { getPref<String>(FORCE_CAMERA2_STATE) }
+                                ))
+
+                        labelledSpinner(
+                                label = "Hands Free Recording: ",
+                                initialItem = getPref<String>(FORCE_HANDSFREEREC_STATE),
+                                items = onOffDefaultList,
+                                id = "spinner_handsfree",
+                                itemSelectedListener = ViewFactory.OnItemChangedProvider<String>(
+                                        { newItem, _, _ ->
+                                            putAndKill(FORCE_HANDSFREEREC_STATE, newItem, activity)
+                                        },
+                                        { getPref<String>(FORCE_HANDSFREEREC_STATE) }
+                                ))
+
+                        labelledSpinner(
+                                label = "FPS Overlay: ",
+                                initialItem = getPref<String>(FORCE_FPS_OVERLAY_STATE),
+                                items = onOffDefaultList,
+                                id = "spinner_fpsoverlay",
+                                itemSelectedListener = ViewFactory.OnItemChangedProvider<String>(
+                                        { newItem, _, _ ->
+                                            putAndKill(FORCE_FPS_OVERLAY_STATE, newItem, activity)
+                                        },
+                                        { getPref<String>(FORCE_FPS_OVERLAY_STATE) }
+                                ))
+
+                        labelledSpinner(
+                                label = "Skyfilters: ",
+                                initialItem = getPref<String>(FORCE_SKYFILTERS_STATE),
+                                items = onOffDefaultList,
+                                id = "spinner_skyfilters",
+                                itemSelectedListener = ViewFactory.OnItemChangedProvider<String>(
+                                        { newItem, _, _ ->
+                                            putAndKill(FORCE_SKYFILTERS_STATE, newItem, activity)
+                                        },
+                                        { getPref<String>(FORCE_SKYFILTERS_STATE) }
+                                ))
+
+                        labelledSpinner(
+                                label = "Emoji Brush: ",
+                                initialItem = getPref<String>(FORCE_EMOJIBRUSH_STATE),
+                                items = onOffDefaultList,
+                                id = "spinner_emojibrush",
+                                itemSelectedListener = ViewFactory.OnItemChangedProvider<String>(
+                                        { newItem, _, _ ->
+                                            putAndKill(FORCE_EMOJIBRUSH_STATE, newItem, activity)
+                                        },
+                                        { getPref<String>(FORCE_EMOJIBRUSH_STATE) }
+                                ))
+
+                        experiemtnsUICallable.call(this)
+                    }.lparams(matchParent)
+                }
+            }.view as T*/
 
     fun refreshFontAdapter() {
         fontSpinnerAdapter.notifyDataSetChanged()
