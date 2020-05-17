@@ -75,7 +75,7 @@ class MiscChangesViewProvider(
         val viewList = ArrayList<Pair<String, View>>()
 
         viewList.add(Pair.create("General", initGeneralPage()))
-        //viewList.add(Pair.create("Experiments", initExperimentsPage()))
+        viewList.add(Pair.create("Experiments", initExperimentsPage()))
 
         viewPager.adapter = ListedViewPageAdapter(
                 viewList
@@ -185,7 +185,7 @@ class MiscChangesViewProvider(
      */
 
     @SuppressLint("ResourceType")
-/*    fun <T : ViewGroup> initExperimentsPage(): T =
+    fun <T : ViewGroup> initExperimentsPage(): T =
             activity.UI {
                 scrollView {
                     lparams(matchParent, matchParent)
@@ -333,7 +333,7 @@ class MiscChangesViewProvider(
                         experiemtnsUICallable.call(this)
                     }.lparams(matchParent)
                 }
-            }.view as T*/
+            }.view as T
 
     fun refreshFontAdapter() {
         fontSpinnerAdapter.notifyDataSetChanged()
