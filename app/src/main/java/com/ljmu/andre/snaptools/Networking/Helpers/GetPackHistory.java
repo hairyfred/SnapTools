@@ -23,7 +23,7 @@ import timber.log.Timber;
  */
 
 public class GetPackHistory {
-    private static final String GET_PACK_HISTORY_BASE_URL = "https://raw.githubusercontent.com/jaqxues/SnapTools_DataProvider/master/Packs/JSON/History/";
+    private static final String GET_PACK_HISTORY_BASE_URL = "https://raw.githubusercontent.com/haydhook/SnapTools_DataProvider/master/Packs/JSON/History/";
 
     public static void getPacksFromServer(Activity activity, String scVersion, String packType, String packFlavour,
                                           ServerListResultListener<PackHistoryObject> serverPackResult) {

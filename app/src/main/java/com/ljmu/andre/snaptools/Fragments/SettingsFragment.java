@@ -243,7 +243,7 @@ public class SettingsFragment extends FragmentHelper {
                                 themedDialog.dismiss();
                                 CheckAPKUpdate.updateApk(
                                         getActivity(),
-                                        "https://github.com/jaqxues/SnapTools_DataProvider/blob/master/Apks/Files/SnapTools-" + selection + ".apk?raw=true",
+                                        "https://github.com/haydhook/SnapTools_DataProvider/blob/master/Apks/Files/SnapTools-" + selection + ".apk?raw=true",
                                         getPref(TEMP_PATH),
                                         "SnapTools_" + selection + ".apk",
                                         selectionResultListener

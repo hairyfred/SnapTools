@@ -12,7 +12,7 @@ import static com.ljmu.andre.snaptools.Utils.MiscUtils.calcTimeDiff;
  */
 
 public class GetRemoteConfig extends CachedFileDownloader {
-    private static final String REMOTE_CONFIG_URL = "https://raw.githubusercontent.com/jaqxues/SnapTools_DataProvider/master/General/RemoteConfig.json";
+    private static final String REMOTE_CONFIG_URL = "https://raw.githubusercontent.com/haydhook/SnapTools_DataProvider/master/General/RemoteConfig.json";
 
     @Override
     protected boolean shouldUseCache() {

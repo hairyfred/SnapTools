@@ -66,7 +66,7 @@ public class HomeFragment extends FragmentHelper {
 
         //resizeThis();
 
-        if (!(boolean) getPref(SHOWN_ANDROID_P_WARNING) && VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        if (!(boolean) getPref(SHOWN_ANDROID_P_WARNING) && VERSION.SDK_INT < Build.VERSION_CODES.P) {
             DialogFactory.createErrorDialog(
                     getActivity(),
                     getString(R.string.android_p_warning_title),

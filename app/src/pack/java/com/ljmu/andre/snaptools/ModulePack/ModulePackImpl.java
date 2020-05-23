@@ -84,8 +84,7 @@ public class ModulePackImpl extends ModulePack {
             }
         }
 
-        return new FragmentHelper[]{settingsFragment/*, new KnownBugsFragment().buildMetaData(this)*/};
-    }
+        return new FragmentHelper[]{settingsFragment, new KnownBugsFragment().buildMetaData(this)};    }
 
     /**
      * ===========================================================================

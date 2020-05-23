@@ -31,7 +31,7 @@ import static com.ljmu.andre.snaptools.Utils.TranslationDef.PACK_UPDATE_AVAILABL
 
 public class CheckPackUpdate {
     public static final String TAG = "check_updates";
-    private static final String CHECK_UPDATE_BASE_URL = "https://raw.githubusercontent.com/jaqxues/SnapTools_DataProvider/master/Packs/JSON/PackUpdates/";
+    private static final String CHECK_UPDATE_BASE_URL = "https://raw.githubusercontent.com/haydhook/SnapTools_DataProvider/master/Packs/JSON/PackUpdates/";
 
     // TODO Setup JSON Error=True detection
     public static void performCheck(
