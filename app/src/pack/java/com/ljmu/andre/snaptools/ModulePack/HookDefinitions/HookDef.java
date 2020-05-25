@@ -63,8 +63,8 @@ public class HookDef extends ConstantDefiner<HookDef.Hook> {
     public static final Hook LOAD_NEW_STORY = new Hook("LOAD_NEW_STORY", HookClassDef.STORY_MANAGER, "a", "auht");
     public static final Hook LOAD_STORIES = new Hook("LOAD_STORIES", HookClassDef.STORY_LOADER, "a", List.class);
     public static final Hook LOAD_STORY_SNAP_ADVERT = new Hook("LOAD_STORY_SNAP_ADVERT", HookClassDef.STORY_SNAP_AD_LOADER, "a", HookClassDef.STORY_SNAP_AD_LOADER.getStrClass(), "ffh");
-    public static final Hook MARK_DIRECT_CHAT_VIEWED_PRESENT = new Hook("MARK_DIRECT_CHAT_VIEWED_PRESENT", HookClassDef.CHAT_DIRECT_VIEW_MARKER, "a", "apfi", "bcbx");
-    public static final Hook MARK_DIRECT_CHAT_VIEWED_UNPRESENT = new Hook("MARK_DIRECT_CHAT_VIEWED_UNPRESENT", HookClassDef.CHAT_DIRECT_VIEW_MARKER, "b", "apfi", "awqi");
+    public static final Hook MARK_DIRECT_CHAT_VIEWED_PRESENT = new Hook("MARK_DIRECT_CHAT_VIEWED_PRESENT", HookClassDef.CHAT_DIRECT_VIEW_MARKER, "a", "apfi", "awqi");
+    public static final Hook MARK_DIRECT_CHAT_VIEWED_UNPRESENT = new Hook("MARK_DIRECT_CHAT_VIEWED_UNPRESENT", HookClassDef.CHAT_DIRECT_VIEW_MARKER, "b", "awqi", "apfi");
     public static final Hook MARK_GROUP_CHAT_VIEWED = new Hook("MARK_GROUP_CHAT_VIEWED", HookClassDef.CHAT_GROUP_VIEW_MARKER, "a", "aphd", String.class);
     public static final Hook MARK_STORY_VIEWED = new Hook("MARK_STORY_VIEWED", HookClassDef.STORY_STATUS_UPDATER, "a", "atyj", HookClassDef.STORY_SNAP.getStrClass(), Boolean.TYPE);
     public static final Hook NETWORK_EXECUTE_SYNC = new Hook("NETWORK_EXECUTE_SYNC", HookClassDef.NETWORK_MANAGER, "executeSynchronously", new Object[0]);

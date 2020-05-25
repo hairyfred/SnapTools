@@ -1,5 +1,6 @@
 package com.ljmu.andre.snaptools.Fragments;
 
+import android.app.ActivityManager;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import com.ljmu.andre.snaptools.Dialogs.DialogFactory;
 import com.ljmu.andre.snaptools.EventBus.EventBus;
 import com.ljmu.andre.snaptools.Fragments.Tutorials.HomeTutorial;
 import com.ljmu.andre.snaptools.R;
+import com.ljmu.andre.snaptools.Utils.PackUtils;
+import com.ljmu.andre.snaptools.Utils.SafeToast;
 import com.ljmu.andre.snaptools.Utils.TutorialDetail;
 
 import java.util.List;
@@ -26,6 +29,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import timber.log.Timber;
 
 import static com.ljmu.andre.GsonPreferences.Preferences.getPref;
 import static com.ljmu.andre.GsonPreferences.Preferences.putPref;
@@ -65,17 +69,26 @@ public class HomeFragment extends FragmentHelper {
         setTutorialDetails(TUTORIAL_DETAILS);
 
         //resizeThis();
-
-        if (!(boolean) getPref(SHOWN_ANDROID_P_WARNING) && VERSION.SDK_INT < Build.VERSION_CODES.P) {
+        boolean UNSUPPORTED_SDK = !(boolean) getPref(SHOWN_ANDROID_P_WARNING) && VERSION.SDK_INT < Build.VERSION_CODES.P;
+        if (UNSUPPORTED_SDK) {
             DialogFactory.createErrorDialog(
                     getActivity(),
                     getString(R.string.android_p_warning_title),
                     getString(R.string.android_p_warning_message)
             ).show();
+            putPref(SHOWN_ANDROID_P_WARNING, false);
+            SafeToast.show(
+                    getActivity(),
+                    "Unsupported Android Version Detected! Try again on Android 9 or higher!",
+                    true
+            );
 
-            putPref(SHOWN_ANDROID_P_WARNING, true);
+            getActivity().moveTaskToBack(true);
+            getActivity().finish();
         }
-
+        Timber.w("\nAndroid Version -> %s\n" +
+                "Minimum Version -> %s\n" +
+                "Supported -> %s", VERSION.SDK_INT,Build.VERSION_CODES.P, UNSUPPORTED_SDK);
         return layoutContainer;
     }
 

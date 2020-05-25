@@ -365,7 +365,7 @@ public class StealthViewing extends ModuleHelper {
                         Timber.d("Marking as read (Not present while received): " + param.args[1]);
 
                         if (getPref(DEFAULT_CHAT_STEALTH))
-                            param.setResult(null);
+                            param.setResult(false);
                     }
                 }
         );
