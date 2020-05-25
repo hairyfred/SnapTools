@@ -4,10 +4,11 @@ Snaptools for Snapchat 10.48.5.0 Beta
 -It also lets you sign in on android 10 without downgrading etc
 
 # Credits
+Hayd for maintaining and fixing the pack when needed
 Liz for some of the hooks  
 Jaqxues for holding my hand  
 Justxns idea for a beta pack  
-Hayd for Custom Notifications and 'Hide Outbound Notifications' Support
+
 
 -If for some reason you would like to donate direct your donations to Jaqxues as it wouldnt be possible without him
 -https://www.paypal.me/jaqxues
