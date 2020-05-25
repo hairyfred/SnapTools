@@ -272,13 +272,13 @@ public class ShopFragment extends FragmentHelper {
     }
 
     private void showPaymentModelReasoning() {
-        String message = "SnapTools uses a <b><font color='#EFDE86'>Pay Per Version</font></b> model instead of a <font color='#EF8686'>monthly subscription</font> based system so that you only pay when you want to use a newer Snapchat version.\n" +
+        String message = "SnapTools uses a <b><font color='#6ba369'>Pay Per Version</font></b> model instead of a <font color='#EF8686'>monthly subscription</font> based system so that you only pay when you want to use a newer Snapchat version.\n" +
                 "\n" +
                 "This aims to provide a cheaper method for our users, but still make it worth our time for maintaining the software.\n" +
                 "\n" +
-                "It should be stressed that you are <b><font color='#EFDE86'>NEVER</font></b> forced to update to any version. You are free to use any premium packs you purchased for as long as you are able to use them.\n" +
+                "It should be stressed that you are <b><font color='#6ba369'>NEVER</font></b> forced to update to any version. You are free to use any premium packs you purchased for as long as you are able to use them.\n" +
                 "\n" +
-                "SnapTools also offers a <b><font color='#EFDE86'>7 Day Guarantee</font></b> so that if a pack for a newer Snapchat is released within 7 days of you purchasing a pack, you will automatically be given access to the newer pack as well.";
+                "SnapTools also offers a <b><font color='#6ba369'>7 Day Guarantee</font></b> so that if a pack for a newer Snapchat is released within 7 days of you purchasing a pack, you will automatically be given access to the newer pack as well.";
 
         if ((boolean) getPref(HAS_SHOWN_PAY_MODEL_REASONING) || message.isEmpty())
             return;

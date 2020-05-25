@@ -1,5 +1,6 @@
 <resources>
-    <string name="splash_description">SnapTools is a project developed by shivarudra1323#9266 who is also planning to release 10.69 , please direct all support to our wonderful dictator , pls help hes holding me a gun point he has my family hostage </string>
+    <color name="blue">#4078C3</color>
+    <string name="splash_description">SnapTools is a project developed by shivarudra1323#9266 who is also developing 10.69!\n\nWith thanks to hairyfred#1337 &amp; hayd#3604 for their contributions to the 10.48.5.0 Beta pack.</string>
     <string name="splash_authors">Andre (Dev) | Ethan (Dev) | Pedro (Team) | Gabe (Team)\nNightMean (Team)</string>
     <string name="placeholder">PLACEHOLDER</string>
     <string name="btn_disable">Disable</string>
@@ -59,8 +60,8 @@
     <string name="donation_toolbar_message">Thank you for considering to donate. Any donations you provide mean the world to our team and hopefully it suggests you\'re enjoying what we\'re providing!</string>
 
     <string name="device_override_message">You\'ve hit the registered device cap, please log out of one or more devices</string>
-    <string name="support_discord_text">For the fastest response to your questions, please join our Discord server where there is usually 24/7 support.\nOnce joined check out the <![CDATA[<b><font color=\'#efde86\'><u>FAQ</u></font></b>]]> channel to check if your question has already been answered. Otherwise try out the <![CDATA[<b><font color=\'#efde86\'><u>@Support</u></font></b>]]> tag to notify the support team of your question.</string>
-    <string name="support_website_text">Want more information about SnapTools? View our official Website hosted by the lovely <![CDATA[<b><font color=\'#efde86\'><u>ElectronicWizard</u></font></b>]]> to get an idea of what we have to offer as well as some FAQ\'s</string>
+    <string name="support_discord_text">For the fastest response to your questions, please join our Discord server where there is usually 24/7 support.\nOnce joined check out the <![CDATA[<b><font color=\'#6ba369\'><u>FAQ</u></font></b>]]> channel to check if your question has already been answered. Otherwise try out the <![CDATA[<b><font color=\'#efde86\'><u>@Support</u></font></b>]]> tag to notify the support team of your question.</string>
+    <string name="support_website_text">Want more information about SnapTools? View our official Website hosted by the lovely <![CDATA[<b><font color=\'#6ba369\'><u>ElectronicWizard</u></font></b>]]> to get an idea of what we have to offer as well as some FAQ\'s</string>
     <string name="support_reddit_text">We also have a Sub-Reddit that is under construction but is still completely usable if you want to post anything relating to SnapTools. Subscribing to us can help to build our community to let new users know that we\'re a trusted application.\nThe Reddit will contain announcements and an up to date FAQ list.</string>
     <string name="support_xda_text">Our XDA page hasn\'t been created yet. We\'re currently waiting for a full public release before we create the page.</string>
 

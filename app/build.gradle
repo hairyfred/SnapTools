@@ -52,7 +52,7 @@ android {
         versionName "0.0.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-        resValue "string", "app_name", "SnapTools"
+        resValue "string", "app_name", "SnapTools Community Edition"
 
         applicationVariants.all { variant ->
 
@@ -93,13 +93,13 @@ android {
     }
     productFlavors {
         prod {
-            versionName '2.0.6.69'
-            versionCode 113
+            versionName '2.0.7.69'
+            versionCode 116
         }
         beta {
             resValue 'string', 'app_name', 'SnapTools Beta'
-            versionName '2.0.6.69b'
-            versionCode 114
+            versionName '2.0.7.69'
+            versionCode 117
         }
         pack {
             // "Pack" Flavour should not be installed as APK

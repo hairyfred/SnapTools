@@ -50,11 +50,11 @@ public class RemoteConfig {
             .put("about_us_description", "SnapTools started with Andre (andrerm124) as the sole developer, with Pedro (pedroc1999) and Gabe (quorn23) as part of the decision making team. Ethan (electronicwizard) also joined as a developer/tester and Michal (nightmean) helped while testing SnapTools and during the bug finding process. The majority of our team are currently in or recently graduated from higher level education.")
 
             .put("support_discord_text", "For the fastest response to your questions, please join our Discord server where there is usually 24/7 support."
-                    + "\nOnce joined check out the <b><font color='#efde86'><u>FAQ</u></font></b> channel to check if your question has already been answered. Otherwise try out the <b><font color='#efde86'><u>@Support</u></font></b> tag to notify the support team of your question."
+                    + "\nOnce joined check out the <b><font color='#6ba369'><u>FAQ</u></font></b> channel to check if your question has already been answered. Otherwise try out the <b><font color='#efde86'><u>@Support</u></font></b> tag to notify the support team of your question."
                     + "\n\nSpecial thanks to the Support team (TupaC, Liz, Freekystar, jaqxues, Erik, Zack4200, Badgermole, Kevin T and Fullonrager) for helping out with testing and their community assistance")
             .put("support_discord_link", "https://discordapp.com/invite/T29v543")
 
-            .put("support_website_text", "Want more information about SnapTools? View our official Website hosted by the lovely <b><font color='#efde86'><u>ElectronicWizard</u></font></b> to get an idea of what we have to offer as well as some FAQs\n(No longer maintained)")
+            .put("support_website_text", "Want more information about SnapTools? View our official Website hosted by the lovely <b><font color='#6ba369'><u>ElectronicWizard</u></font></b> to get an idea of what we have to offer as well as some FAQs\n(No longer maintained)")
             .put("support_website_link", "http://snaptools.org")
 
             .put("support_reddit_text", "We also have a Sub-Reddit that is under construction but is still completely usable if you want to post anything relating to SnapTools. Subscribing to us can help to build our community to let new users know that we're a trusted application.\nThe Reddit will contain announcements and an up to date FAQ list.")
@@ -73,13 +73,13 @@ public class RemoteConfig {
             // ===========================================================================
 
             // Shop Fragment =============================================================
-            .put("payment_model_reasoning", "SnapTools uses a <b><font color='#EFDE86'>Pay Per Version</font></b> model instead of a <font color='#EF8686'>monthly subscription</font> based system so that you only pay when you want to use a newer Snapchat version.\n" +
+            .put("payment_model_reasoning", "SnapTools uses a <b><font color='#6ba369'>Pay Per Version</font></b> model instead of a <font color='#EF8686'>monthly subscription</font> based system so that you only pay when you want to use a newer Snapchat version.\n" +
                     "\n" +
                     "This aims to provide a cheaper method for our users, but still make it worth our time for maintaining the software.\n" +
                     "\n" +
-                    "It should be stressed that you are <b><font color='#EFDE86'>NEVER</font></b> forced to update to any version. You are free to use any premium packs you purchased for as long as you are able to use them.\n" +
+                    "It should be stressed that you are <b><font color='#6ba369'>NEVER</font></b> forced to update to any version. You are free to use any premium packs you purchased for as long as you are able to use them.\n" +
                     "\n" +
-                    "SnapTools also offers a <b><font color='#EFDE86'>7 Day Guarantee</font></b> so that if a pack for a newer Snapchat is released within 7 days of you purchasing a pack, you will automatically be given access to the newer pack as well.")
+                    "SnapTools also offers a <b><font color='#6ba369'>7 Day Guarantee</font></b> so that if a pack for a newer Snapchat is released within 7 days of you purchasing a pack, you will automatically be given access to the newer pack as well.")
             // ===========================================================================
 
             .build();
