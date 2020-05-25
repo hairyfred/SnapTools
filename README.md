@@ -4,7 +4,7 @@ Snaptools for Snapchat 10.48.5.0 Beta
 -It also lets you sign in on android 10 without downgrading etc
 
 # Credits
-Hayd for maintaining and fixing the pack when needed 
+Hayd for maintaining and fixing the pack when needed  
 Liz for some of the hooks  
 Jaqxues for holding my hand  
 Justxns idea for a beta pack  
