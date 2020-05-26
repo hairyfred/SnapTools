@@ -164,6 +164,6 @@ public class GetKnownBugs {
     public static String getKnownBugsUrl(String scVersion) {
         scVersion = scVersion.replace(" ", "_");
         Timber.w("Snapchat Version: " + scVersion);
-        return KNOWN_BUGS_BASE_URL + "KnownBugs_SC_v" + scVersion + ".json";
+        return KNOWN_BUGS_BASE_URL + "KnownBugs_SC_v" + scVersion.replace(" Beta", "_Beta") + ".json";
     }
 }

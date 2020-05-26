@@ -90,6 +90,6 @@ public class GetPackHistory {
     }
 
     private static String getPackHistoryUrl(String scVersion) {
-        return GET_PACK_HISTORY_BASE_URL + "PackHistory_SC_v" + scVersion + ".json";
+        return GET_PACK_HISTORY_BASE_URL + "PackHistory_SC_v" + scVersion.replace(" Beta", "_Beta") + ".json";
     }
 }

@@ -104,8 +104,7 @@ public class CheckPackUpdate {
                 .performRequest();
     }
 
-    private static String getPackUpdateCheckUrl(String snapVersion) {
-        return
-                CHECK_UPDATE_BASE_URL + "LatestPack_SC_v" + snapVersion + ".json";
+    public static String getPackUpdateCheckUrl(String snapVersion) {
+        return CHECK_UPDATE_BASE_URL + "LatestPack_SC_v" + snapVersion.replace(" Beta", "_Beta") + ".json";
     }
 }

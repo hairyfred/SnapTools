@@ -100,6 +100,6 @@ public class GetPackChangelog {
     }
 
     private static String getChangelogUrl(String snapVersion) {
-        return GET_CHANGELOG_BASE_URL + "PackChangelog_SC_v" + snapVersion + ".json";
+        return GET_CHANGELOG_BASE_URL + "PackChangelog_SC_v" + snapVersion.replace(" Beta", "_Beta") + ".json";
     }
 }
