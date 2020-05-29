@@ -36,7 +36,7 @@ android {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
     }
 
-    compileSdkVersion 28
+    compileSdkVersion 29
     buildToolsVersion '30.0.0-rc3'
     android {
         lintOptions {
@@ -46,8 +46,8 @@ android {
 
     defaultConfig {
         applicationId "com.ljmu.andre.snaptools"
-        minSdkVersion 21
-        targetSdkVersion 28
+        minSdkVersion 29
+        targetSdkVersion 29
         versionCode 1
         versionName "0.0.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -95,230 +95,81 @@ android {
         prod {
             versionName '2.0.8.69'
             versionCode 120
-        beta {
-            resValue 'string', 'app_name', 'SnapTools Beta'
-            versionName '2.0.8.69b'
-            versionCode 121
+            beta {
+                resValue 'string', 'app_name', 'SnapTools Beta'
+                versionName '2.0.8.69b'
+                versionCode 121
+            }
+            pack {
+                // "Pack" Flavour should not be installed as APK
+                resValue 'string', 'app_name', 'SnapTools Pack Compiled'
+                versionName '2.0.8.69'
+                versionCode 122
+            }
         }
-        pack {
-            // "Pack" Flavour should not be installed as APK
-            resValue 'string', 'app_name', 'SnapTools Pack Compiled'
-            versionName '2.0.8.69'
-            versionCode 122
+    }
+
+    dependencies {
+        implementation fileTree(include: ['*.jar'], dir: 'libs')
+        implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+        implementation 'androidx.appcompat:appcompat:1.0.0'
+        implementation 'com.google.android.material:material:1.0.0'
+        implementation 'androidx.recyclerview:recyclerview:1.0.0'
+        implementation 'androidx.multidex:multidex:2.0.0'
+        implementation 'androidx.exifinterface:exifinterface:1.0.0'
+        testImplementation 'junit:junit:4.12'
+        // SU library
+        implementation 'com.jaredrummler:android-shell:1.0.0'
+        // Xposed
+        compileOnly 'de.robv.android.xposed:api:82'
+        compileOnly 'de.robv.android.xposed:api:82:sources'
+        // Logging
+        implementation 'com.jakewharton.timber:timber:4.7.1'
+        // UI Components
+        implementation 'com.wang.avi:library:2.1.3'
+        implementation 'com.isseiaoki:simplecropview:1.1.4'
+        implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.27'
+        implementation 'com.github.bumptech.glide:glide:4.9.0'
+        annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+        implementation 'com.github.Andy671:Dachshund-Tab-Layout:v0.2.0'
+        implementation 'com.fujiyuu75:sequent:0.2.1'
+        // View Injection
+        implementation 'com.jakewharton:butterknife:10.2.1'
+        annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+        // File Management
+        implementation 'com.nononsenseapps:filepicker:4.1.0'
+        //RXJava
+        implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+        implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
+        // APK Update Checker
+        implementation 'com.github.javiersantos:AppUpdater:2.6.3'
+        // ### Googles own API's ### \\
+        // Network Request
+        implementation 'com.android.volley:volley:1.1.0'
+        // JSON Parsing
+        implementation 'com.google.code.gson:gson:2.8.5'
+        // Guava
+        api 'com.google.guava:guava:27.1-android'
+        //Tutorial lib for overview
+        implementation 'com.github.faruktoptas:FancyShowCaseView:1.0.0'
+        //Confetti lib because this is important andre dammit
+        implementation 'nl.dionsegijn:konfetti:1.0.2'
+        // Anko Layouts
+        implementation 'org.jetbrains.anko:anko-sdk25:0.10.1'
+        // sdk15, sdk19, sdk21, sdk23 are also available
+        implementation 'org.jetbrains.anko:anko-appcompat-v7:0.10.1'
+        // Kotlin
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+        // Video Compression
+        implementation 'net.ypresto.androidtranscoder:android-transcoder:0.2.0'
+        //Color picker
+        //compile 'com.github.QuadFlask:colorpicker:0.0.13'
+        implementation 'com.g00fy2:versioncompare:1.2.4'
+
+        implementation 'org.bouncycastle:bcprov-jdk15on:1.58'
+        implementation 'org.bouncycastle:bcpkix-jdk15on:1.58'
+        implementation('com.github.topjohnwu:libsu:1.1.1') {
+            exclude group: 'android.support.annotation'
         }
     }
 }
-
-dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'androidx.multidex:multidex:2.0.0'
-    implementation 'androidx.exifinterface:exifinterface:1.0.0'
-    testImplementation 'junit:junit:4.12'
-    // SU library
-    implementation 'com.jaredrummler:android-shell:1.0.0'
-    // Xposed
-    compileOnly 'de.robv.android.xposed:api:82'
-    compileOnly 'de.robv.android.xposed:api:82:sources'
-    // Logging
-    implementation 'com.jakewharton.timber:timber:4.7.1'
-    // UI Components
-    implementation 'com.wang.avi:library:2.1.3'
-    implementation 'com.isseiaoki:simplecropview:1.1.4'
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.27'
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
-    implementation 'com.github.Andy671:Dachshund-Tab-Layout:v0.2.0'
-    implementation 'com.fujiyuu75:sequent:0.2.1'
-    // View Injection
-    implementation 'com.jakewharton:butterknife:10.2.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
-    // File Management
-    implementation 'com.nononsenseapps:filepicker:4.1.0'
-    //RXJava
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
-    // APK Update Checker
-    implementation 'com.github.javiersantos:AppUpdater:2.6.3'
-    // ### Googles own API's ### \\
-    // Network Request
-    implementation 'com.android.volley:volley:1.1.0'
-    // JSON Parsing
-    implementation 'com.google.code.gson:gson:2.8.5'
-    // Guava
-    api 'com.google.guava:guava:27.1-android'
-    //Tutorial lib for overview
-    implementation 'com.github.faruktoptas:FancyShowCaseView:1.0.0'
-    //Confetti lib because this is important andre dammit
-    implementation 'nl.dionsegijn:konfetti:1.0.2'
-    // Anko Layouts
-    implementation 'org.jetbrains.anko:anko-sdk25:0.10.1'
-    // sdk15, sdk19, sdk21, sdk23 are also available
-    implementation 'org.jetbrains.anko:anko-appcompat-v7:0.10.1'
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"    // Video Compression
-    implementation 'net.ypresto.androidtranscoder:android-transcoder:0.2.0'
-    //Color picker
-    //compile 'com.github.QuadFlask:colorpicker:0.0.13'
-    implementation 'com.g00fy2:versioncompare:1.2.4'
-
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.58'
-    implementation 'org.bouncycastle:bcpkix-jdk15on:1.58'
-    implementation('com.github.topjohnwu:libsu:1.1.1') {
-        exclude group: 'android.support.annotation'
-    }
-}
-
-/*task exportModulePackClasses(type: JavaExec) {
-    println "EXPORTING MODULE PACK CLASSES"
-    main = "Main"
-    classpath = files('C:/Users/Andre/Documents/GitHub/SnapTools/app/pack_exporter')
-
-    // arg0 = Source Mapping Path
-    // arg1 = Proguard Jar Path
-    // arg2 = Export Path
-    // arg3 = Delay after completing
-    args(
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/build/outputs/mapping/pack/release/mapping.txt",
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/build/intermediates/transforms/proguard/pack/release/0.jar",
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/pack_exporter/ExportedModulePackClasses",
-            0
-    )
-}*/
-
-/**
- * ===========================================================================
- * Tasks used explicitly for ensuring the proguard mappings are never changed
- * as the ModulePack system doesn't like changing mappings.
- * You should go through the paths below and find the location of your own files.
- * ===========================================================================
- */
-/*task preProguardPackMappingMerge(type: JavaExec) {
-    println "PRE-BUILD-MERGE"
-    main = "Main"
-    classpath = files('C:/Users/Andre/Documents/GitHub/MappingManager/out/production/MappingManager')
-
-    // arg0 = Source Mapping Folder Path
-    // arg1 = Source Mapping File Name
-    // arg2 = Mapping Backup Folder
-    // arg3 = Delay after completing
-    // arg4 = Delete existing mapping
-    args(
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/build/outputs/mapping/pack/release/",
-            "mapping.txt",
-            "C:/Users/Andre/Documents/Android/STools/mapping_backups",
-            0,
-            "true",
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/build/outputs/mapping/release/",
-    )
-}
-
-task postProguardPackMappingMerge(type: JavaExec) {
-    println "POST-BUILD-MERGE"
-    main = "Main"
-    classpath = files('C:/Users/Andre/Documents/GitHub/MappingManager/out/production/MappingManager')
-
-    // arg0 = Source Mapping Folder Path
-    // arg1 = Source Mapping File Name
-    // arg2 = Mapping Backup Folder
-    // arg3 = Delay after completing
-    args(
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/build/outputs/mapping/pack/release/",
-            "mapping.txt",
-            "C:/Users/Andre/Documents/Android/STools/mapping_backups",
-            0
-    )
-}
-
-
-
-/*task preBetaMappingMerger(type: JavaExec) {
-    println "PRE-BUILD-MERGE"
-    main = "Main"
-    classpath = files('C:/Users/Andre/Documents/GitHub/MappingManager/out/production/MappingManager')
-
-    // arg0 = Source Mapping Folder Path
-    // arg1 = Source Mapping File Name
-    // arg2 = Mapping Backup Folder
-    // arg3 = Delay after completing
-    // arg4 = Delete existing mapping
-    args(
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/build/outputs/mapping/beta/release/",
-            "mapping.txt",
-            "C:/Users/Andre/Documents/Android/STools/mapping_backups",
-            0,
-            "true",
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/build/outputs/mapping/release/",
-    )
-}
-
-task postBetaMappingMerger(type: JavaExec) {
-    println "POST-BUILD-MERGE"
-    main = "Main"
-    classpath = files('C:/Users/Andre/Documents/GitHub/MappingManager/out/production/MappingManager')
-
-    // arg0 = Source Mapping Folder Path
-    // arg1 = Source Mapping File Name
-    // arg2 = Mapping Backup Folder
-    // arg3 = Delay after completing
-    args(
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/build/outputs/mapping/beta/release/",
-            "mapping.txt",
-            "C:/Users/Andre/Documents/Android/STools/mapping_backups",
-            0
-    )
-}
-
-
-task preProdMappingMerger(type: JavaExec) {
-    println "PRE-BUILD-MERGE"
-    main = "Main"
-    classpath = files('C:/Users/Andre/Documents/GitHub/MappingManager/out/production/MappingManager')
-
-    // arg0 = Source Mapping Folder Path
-    // arg1 = Source Mapping File Name
-    // arg2 = Mapping Backup Folder
-    // arg3 = Delay after completing
-    // arg4 = Delete existing mapping
-    // arg5 = Mapping Directory
-    args(
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/build/outputs/mapping/prod/release/",
-            "mapping.txt",
-            "C:/Users/Andre/Documents/Android/STools/mapping_backups",
-            0,
-            "true",
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/build/outputs/mapping/",
-    )
-}
-
-task postProdMappingMerger(type: JavaExec) {
-    println "POST-BUILD-MERGE"
-    main = "Main"
-    classpath = files('C:/Users/Andre/Documents/GitHub/MappingManager/out/production/MappingManager')
-
-    // arg0 = Source Mapping Folder Path
-    // arg1 = Source Mapping File Name
-    // arg2 = Mapping Backup Folder
-    // arg3 = Delay after completing
-    args(
-            "C:/Users/Andre/Documents/GitHub/SnapTools/app/build/outputs/mapping/prod/release/",
-            "mapping.txt",
-            "C:/Users/Andre/Documents/Android/STools/mapping_backups",
-            0
-    )
-}*/
-
-//afterEvaluate() {
-/*transformClassesAndResourcesWithProguardForPackRelease.dependsOn(preProguardPackMappingMerge)
-transformClassesAndResourcesWithProguardForPackRelease.finalizedBy(postProguardPackMappingMerge)*/
-//    assemblePackRelease.finalizedBy(exportModulePackClasses)
-
-/*transformClassesAndResourcesWithProguardForBetaRelease.dependsOn(preBetaMappingMerger)
-transformClassesAndResourcesWithProguardForBetaRelease.finalizedBy(postBetaMappingMerger)
-
-transformClassesAndResourcesWithProguardForProdRelease.dependsOn(preProdMappingMerger)
-transformClassesAndResourcesWithProguardForProdRelease.finalizedBy(postProdMappingMerger)*/
-//}
