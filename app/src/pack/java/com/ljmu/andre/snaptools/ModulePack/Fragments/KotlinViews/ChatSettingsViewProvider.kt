@@ -83,7 +83,7 @@ class ChatSettingsViewProvider {
                             }
                         }
 
-                        themedSwitchCompat(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
+                        themedSwitchCompatX(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
                             id = "switch_stealth_typing".toId()
 
                             verticalPadding = 5.toDp()
@@ -98,7 +98,7 @@ class ChatSettingsViewProvider {
 
                         header("Custom Notification Settings")
 
-                        themedSwitchCompat(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
+                        themedSwitchCompatX(ResourceUtils.getStyle(activity, "DefaultSwitch")) {
                             verticalPadding = 5.toDp()
                             horizontalPadding = 10.toDp()
                             text = "Custom notifications"
