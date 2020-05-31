@@ -86,7 +86,7 @@ public class DownloadModulePack implements DownloadListener {
     }
 
     private String getDownloadUrl() {
-        return PACK_BASE_URL + packName + ".jar?raw=true";
+        return PACK_BASE_URL + packName.replace(" Beta", "_Beta") + ".jar?raw=true";
     }
 
     @Override
